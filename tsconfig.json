@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "lib": ["es6"],
+    "allowUmdGlobalAccess": true,
+    "module": "UMD",
+    "allowJs": true,
+    "checkJs": true,
+    "typeRoots": ["./types"],
+  },
+}

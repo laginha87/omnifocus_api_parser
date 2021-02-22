@@ -2,7 +2,7 @@ require 'nokogiri'
 require 'pry'
 f = File.foreach("./Untitled.md")
 
-output = File.open("./lib.d.ts", "w")
+output = File.open("./types/global.d.ts", "w")
 classes = {}
 sym = nil
 next_def = nil
@@ -47,19 +47,18 @@ def parse_line(ln)
   .gsub("`", "")
   .gsub("→", ":")
   .gsub(/\[((\w|\.)+)\]\(#(\w|\.)+\)/) { |_|
-    $1.gsub(".", "")
+    $1
   }.gsub("function: ", "fn: ")
-  .gsub(/(\w+) of (\w+) of (\w+)/) { |_| "#{$1}<#{$2}<#{$3}>>"}
-  .gsub(/(\w+) of (\w+)/) { |_| "#{$1}<#{$2}>"}
+  .gsub(/(\S+) of (\S+) of (\S+)/) { |_| "#{$1}<#{$2}<#{$3}>>"}
+  .gsub(/(\S+) of (\S+)/) { |_| "#{$1}<#{$2}>"}
   .gsub("with", "wth")
-  .gsub(/(\w+, )*( ?or \w+)+/) {|e|
+  .gsub(/(\S+, )*( ?or \S+)+/) {|e|
     e.split(", ").flat_map{|e| e.split(" or ")}.join("|")
   }.gsub(" or ", "|")
   .gsub("|or ", "|")
+  .gsub(",>", ">,")
+  .gsub(")>", ">)")
   .gsub("Array<URL>, String|Image|FileWrapper", "Array<URL>|String|Image|FileWrapper")
-  .gsub(" Image ", "typeof Image")
-  .gsub("Image|", "typeof Image|")
-  .gsub("<Image>", "<typeof Image>")
 end
 
 def parse_func(fn, static = false)
@@ -76,19 +75,51 @@ def parse_var(l, static=false)
   end
   "/**\n  *  #{cm}  **/\n" + (static  ? " static " : "" )+ res
 end
+
 classes.delete("Array")
 classes.delete("Error")
-classes.delete("Image")
 classes.delete("Function")
 classes.delete("Promise")
 
-classes.sort.each do |cl, methods|
-  output << """
-declare class #{cl.gsub(".", "")} {
+def merge!(h1,h2)
+  h1.merge!(h2) {|k,v1,v2| merge!(v1,v2)}
+end
+
+submodules = classes.select {|k,v| k.include?(".")}
+
+submodules.each do |e,k|
+  classes.delete(e)
+  root = classes
+  *names, last_name = e.split(".")
+  cumulator = names.reverse.reduce({last_name =>  k}) do |acc, curr|
+    { curr => {submodules:  acc}}
+  end
+  merge!(classes, cumulator)
+end
+
+
+def print_class(cl, methods, namespaced: false)
+  declare = namespaced ? "" : "declare"
+  res = """ #{declare} class #{cl} {
+  #{methods[:constructor].map do |bd, cm|
+    a,b,*c = parse_line(bd).split(/\(|\)/)
+    "constructor(#{b})"
+  end.join("\n   ")}
   #{methods[:instance_funcs].map {|e| parse_func(e) }.join("\n   ")}
   #{methods[:class_func].map {|e| parse_func(e, true) }.join("\n   ")}
   #{methods[:instance_props].map {|e| parse_var(e)}.join("\n    ")  }
   #{methods[:class_props].map {|e| parse_var(e, true)}.join("\n    ") }
 }
 """
+  if(methods[:submodules])
+    methods[:submodules].each do |name, methods|
+      res << """#{declare} namespace #{cl} {
+        #{print_class(name, methods, namespaced: true)}
+      }"""
+    end
+  end
+  res
+end
+classes.sort.each do |cl, methods|
+  output << print_class(cl, methods)
 end

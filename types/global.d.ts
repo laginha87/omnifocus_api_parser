@@ -4005,7 +4005,7 @@ declare namespace Task {
 
   }
 
-} declare class TaskArray {
+} declare class TaskArray extends Array<Task> {
 
   /**
   *   Returns the first `Task` contained directly in this array with the given name.

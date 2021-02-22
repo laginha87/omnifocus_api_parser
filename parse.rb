@@ -2,10 +2,11 @@ require 'nokogiri'
 require 'pry'
 f = File.foreach("./Untitled.md")
 
-output = File.open("./blah.d.ts", "w")
+output = File.open("./lib.d.ts", "w")
 classes = {}
 sym = nil
 next_def = nil
+store_comment = false
 f.reject(&:empty?).each do |l|
   case l
   when /^# /
@@ -30,7 +31,13 @@ f.reject(&:empty?).each do |l|
     next_def=:instance_props
   when /^### /
     html = Nokogiri::HTML(l[4..-1]).text()
-    classes[sym][next_def] << html
+    classes[sym][next_def] << [html]
+    store_comment = true
+  else
+    if store_comment
+      store_comment  = false
+      classes[sym][next_def].last << l
+    end
   end
 end
 
@@ -55,17 +62,19 @@ def parse_line(ln)
   .gsub("<Image>", "<typeof Image>")
 end
 
-def parse_func(fn)
-  parse_line(fn)
+def parse_func(fn, static = false)
+  bd,cm = fn
+  "/**\n  *  #{cm}  **/\n" + (static  ? " static " : "" ) + parse_line(bd)
 end
 
-def parse_var(l)
-  res = parse_line(l).gsub("var ", "")
+def parse_var(l, static=false)
+  bd,cm = l
+  res = parse_line(bd).gsub("var ", "")
   if res.include?("*read-only*")
     res.gsub!("*read-only*", "")
     res = "readonly #{res}"
   end
-  res
+  "/**\n  *  #{cm}  **/\n" + (static  ? " static " : "" )+ res
 end
 classes.delete("Array")
 classes.delete("Error")
@@ -77,9 +86,9 @@ classes.sort.each do |cl, methods|
   output << """
 declare class #{cl.gsub(".", "")} {
   #{methods[:instance_funcs].map {|e| parse_func(e) }.join("\n   ")}
-  #{methods[:class_func].map {|e| "static " + parse_func(e) }.join("\n   ")}
+  #{methods[:class_func].map {|e| parse_func(e, true) }.join("\n   ")}
   #{methods[:instance_props].map {|e| parse_var(e)}.join("\n    ")  }
-  #{methods[:class_props].map {|e| "static " + parse_var(e)}.join("\n    ") }
+  #{methods[:class_props].map {|e| parse_var(e, true)}.join("\n    ") }
 }
 """
 end

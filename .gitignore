@@ -1,3 +1,4 @@
 .bundle/
 lib.d.ts
 Build/
+env.rb

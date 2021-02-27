@@ -9,7 +9,10 @@
     "mediumLabel": "ProccessInbox",
     "paletteLabel": "ProccessInbox",
 }*/
-;(() => {
+
+(() => {
+  const pr = new Preferences("youtub");
+  const YOUTUBE_API_KEY = pr.read("api_key");
   /**
    * @param {Task} t
    */
@@ -17,7 +20,7 @@
     if(t.name.match("list=")) {
       let listId = t.name.split("v=")[1].split("list=")[1]
       const req1 = URL.FetchRequest.fromString(
-        `https://www.googleapis.com/youtube/v3/playlists?id=${listId}&key=AIzaSyAjHvYBzTBC-3OOdCPelo3IAu63h5niNt8&part=snippet`
+        `https://www.googleapis.com/youtube/v3/playlists?id=${listId}&key=${YOUTUBE_API_KEY}&part=snippet`
         )
 
         req1.fetch().then((res) => {
@@ -37,22 +40,40 @@
             new Task(`https://www.youtube.com/watch?v=${e.contentDetails.videoId}`, t)
           })
         })
+      } else {
+        let id = t.name.split('v=')[1]
+        const req = URL.FetchRequest.fromString(
+          `https://www.googleapis.com/youtube/v3/videos?id=${id}&key=AIzaSyAjHvYBzTBC-3OOdCPelo3IAu63h5niNt8&part=snippet,contentDetails`
+        )
+        req.fetch().then((res) => {
+          let data = JSON.parse(res.bodyString)
+          var video = data.items[0]
+          t.estimatedMinutes = convert_time(video.contentDetails.duration)
+          t.note = t.name
+          t.name = video.snippet.title
+          t.addTag(tagsMatching("Watch"))
+        })
+  }}
 
+  const regexifyFirstElement = (([regex, ...first]) => [new RegExp(`\\${regex}(\\s|$)`), ...first]);
+  const tagChanges = [
+    ["#co", "Computer"],
+    ["#re", "Read"],
+    ["#ca", "Cabinet"],
+    ["#fr", "Frog"],
+    ["#mo", "Mobile"],
+    ["#li", "Listen"],
+    ["#th", "Think"],
+    ["#wa", "Watch"],
+  ].map(regexifyFirstElement);
+  const projectChanges = [
+    ["$mx", "Mixlab", "Office"],
+    ["$r", "Runtime", "Office"],
+    ["$gd", "Developing Games"],
+    ["$p", "Personal"],
+    ["$a", "Omnifocus automation"],
+  ].map(regexifyFirstElement);
 
-    } else {
-      let id = t.name.split('v=')[1]
-      const req = URL.FetchRequest.fromString(
-        `https://www.googleapis.com/youtube/v3/videos?id=${id}&key=AIzaSyAjHvYBzTBC-3OOdCPelo3IAu63h5niNt8&part=snippet,contentDetails`
-      )
-      req.fetch().then((res) => {
-        let data = JSON.parse(res.bodyString)
-        var video = data.items[0]
-        t.estimatedMinutes = convert_time(video.contentDetails.duration)
-        t.note = t.name
-        t.name = video.snippet.title
-      })
-    }
-  }
   function convert_time(duration) {
     var a = duration.match(/\d+/g)
 
@@ -97,23 +118,30 @@
    * @param {Task} t
    */
 
-  const assignProject = (t, key, projectName, tags = []) => {
-    t.name = t.name.replace(key, '')
+   const assignProject = (t, key, projectName, tags=[]) =>{
+    t.name = t.name.replace(key, "").trim()
     t.assignedContainer = projectsMatching(projectName)[0]
     tags.forEach((e) => {
       t.addTag(tagsMatching(e)[0])
     })
   }
 
+  /**
+   * @param {Task} t
+   */
   const processItem = (t) => {
-    if (t.name.match(/\$mx/)) {
-      assignProject(t, '$mx', 'Mixlab', ['🏢Geo - Office'])
-    }
 
-    if (t.name.match(/\$r/)) {
-      assignProject(t, '$r', 'Runtime', ['🏢Geo - Office'])
-    }
-
+    projectChanges.forEach(([regex, project, ...tags]) => {
+      if(t.name.match(regex)) {
+        assignProject(t, regex, project, tags)
+      }
+    })
+    tagChanges.forEach(([regex, tag]) => {
+      if(t.name.match(regex)) {
+        t.name = t.name.replace(regex, "").trim()
+        t.addTag(tagsMatching(tag)[0])
+      }
+    })
     if (t.name.match('youtube')) {
       processYoutube(t)
     }

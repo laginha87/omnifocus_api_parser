@@ -6,7 +6,7 @@
     "version": "0.1",
     "description": "A plug-in that...",
     "label": "ProccessInbox",
-    "mediumLabel": "ProccessInbox",
+    "mediumLabel": "#co->🖥Device - Computer'] #re->📕Read #ca->📁Cabinet #fr->🐸 Frog #mo->☎️Device - Mobile #li->🎧Listen #th->🧠 Think #wa->Watch'],$mx->Mixlab->Office $r->Runtime->Office $gd->Developing Games $p->Personal $a->Omnifocus automation",
     "paletteLabel": "ProccessInbox",
 }*/
 
@@ -51,19 +51,19 @@
           t.estimatedMinutes = convert_time(video.contentDetails.duration)
           t.note = t.name
           t.name = video.snippet.title
-          t.addTag(tagsMatching("Watch"))
+          t.addTag(tagNamed("Watch"))
         })
   }}
 
   const regexifyFirstElement = (([regex, ...first]) => [new RegExp(`\\${regex}(\\s|$)`), ...first]);
   const tagChanges = [
-    ["#co", "Computer"],
-    ["#re", "Read"],
-    ["#ca", "Cabinet"],
-    ["#fr", "Frog"],
-    ["#mo", "Mobile"],
-    ["#li", "Listen"],
-    ["#th", "Think"],
+    ["#co", "🖥Device - Computer"],
+    ["#re", "📕Read"],
+    ["#ca", "📁Cabinet"],
+    ["#fr", "🐸 Frog"],
+    ["#mo", "☎️Device - Mobile"],
+    ["#li", "🎧Listen"],
+    ["#th", "🧠 Think"],
     ["#wa", "Watch"],
   ].map(regexifyFirstElement);
   const projectChanges = [
@@ -122,7 +122,7 @@
     t.name = t.name.replace(key, "").trim()
     t.assignedContainer = projectsMatching(projectName)[0]
     tags.forEach((e) => {
-      t.addTag(tagsMatching(e)[0])
+      t.addTag(tagNamed(e))
     })
   }
 
@@ -139,7 +139,7 @@
     tagChanges.forEach(([regex, tag]) => {
       if(t.name.match(regex)) {
         t.name = t.name.replace(regex, "").trim()
-        t.addTag(tagsMatching(tag)[0])
+        t.addTag(tagNamed(tag))
       }
     })
     if (t.name.match('youtube')) {

@@ -61,9 +61,9 @@ def parse_line(ln)
   .gsub("Array<URL>, String|Image|FileWrapper", "Array<URL>|String|Image|FileWrapper")
 end
 
-def parse_func(fn, static = false)
+def parse_func(fn, static = false, pre='')
   bd,cm = fn
-  "/**\n  *  #{cm}  **/\n" + (static  ? " static " : "" ) + parse_line(bd)
+  "/**\n  *  #{cm}  **/\n" + pre + (static  ? " static " : "" ) + parse_line(bd)
 end
 
 def parse_var(l, static=false)
@@ -123,3 +123,16 @@ end
 classes.sort.each do |cl, methods|
   output << print_class(cl, methods)
 end
+
+
+database_methods = classes["Database"]
+output << """
+ declare module globalThis {
+  #{database_methods[:instance_funcs].map do |e|
+    res = parse_func(e, false, "let ").sub("(", ": (").sub(" : ", " => ")
+    res.include?("=>") ? res : res + " => void"
+  end.join("\n   ")
+ }
+ #{database_methods[:instance_props].map {|e| parse_var(e).sub("readonly", "let")}.join("\n    ")  }
+}
+"""

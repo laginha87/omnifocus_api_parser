@@ -1,7 +1,7 @@
  declare class ActiveObject {
-  
-  
-  
+
+
+
   /**
   *   If `true`, then this object is considered active, otherwise the object is considered dropped.
   **/
@@ -10,9 +10,9 @@ active : Boolean
     /**
   *   Returns `true` if this object and all its containers are active.
   **/
-readonly effectiveActive : Boolean 
+readonly effectiveActive : Boolean
 
-  
+
 }
  declare class Alert {
   constructor(title: String, message: String)
@@ -26,93 +26,93 @@ show(callback: Function|null) : Promise<Number>
   **/
 addOption(string: String)
 
-  
-  
-  
+
+
+
 }
  declare class Application {
-  
+
   /**
   *   Attempts to open the specified document and return a reference to it asynchronously. If the document is already open, the reference is passed along. Note that due to platform sandboxing restrictions, opening the document may fail if the application doesn't have currently permission to access the given `URL`. The document, if any, that is associated with the calling script can be passed along to help grant permission to open the new document.
   **/
 openDocument(from: Document|null, url: URL, completed: Function)
 
-  
+
   /**
   *   The internal build version number for the app. See also `userVersion`.
   **/
-readonly buildVersion : Version 
+readonly buildVersion : Version
 
     /**
   *   Whether the Command key is currently down.
   **/
-readonly commandKeyDown : Boolean 
+readonly commandKeyDown : Boolean
 
     /**
   *   Whether the Control key is currently down.
   **/
-readonly controlKeyDown : Boolean 
+readonly controlKeyDown : Boolean
 
     /**
   *   Application name.
   **/
-readonly name : String 
+readonly name : String
 
     /**
   *   Whether the Option key is currently down.
   **/
-readonly optionKeyDown : Boolean 
+readonly optionKeyDown : Boolean
 
     /**
   *   Returns a string describing the current platform, currently `"iOS"` or `"macOS"`.
   **/
-readonly platformName : String 
+readonly platformName : String
 
     /**
   *   Whether the Shift key is currently down.
   **/
-readonly shiftKeyDown : Boolean 
+readonly shiftKeyDown : Boolean
 
     /**
   *   The user-visible version number for the app. See also `buildVersion`.
   **/
-readonly userVersion : Version 
+readonly userVersion : Version
 
     /**
   *   Deprecated: Recommend using either `userVersion` or `buildVersion`.
   **/
-readonly version : String 
+readonly version : String
 
-  
+
 }
  declare class ApplyResult {
-  
-  
-  
-  
+
+
+
+
   /**
   *   The descendants of the current item are skipped.
   **/
- static readonly SkipChildren : ApplyResult 
+ static readonly SkipChildren : ApplyResult
 
     /**
   *   The unvisited peers of the current item are skipped.
   **/
- static readonly SkipPeers : ApplyResult 
+ static readonly SkipPeers : ApplyResult
 
     /**
   *   The call to `apply` terminates with no further items being visited.
   **/
- static readonly Stop : ApplyResult 
+ static readonly Stop : ApplyResult
 
     /**
   *   An array of all items of this enumeration.
   **/
- static readonly all : Array<ApplyResult> 
+ static readonly all : Array<ApplyResult>
 
 }
  declare class Calendar {
-  
+
   /**
   *   Returns a new `Date` by adding the given `DateComponents`, or null if no date could be calculated.
   **/
@@ -138,110 +138,110 @@ dateComponentsBetweenDates(start: Date, end: Date) : DateComponents
   **/
 startOfDay(date: Date) : Date
 
-  
+
   /**
   *   The ISO identifier for the calendar.
   **/
-readonly identifier : String 
+readonly identifier : String
 
     /**
   *   The locale of the calendar.
   **/
-readonly locale : Locale|null 
+readonly locale : Locale|null
 
     /**
   *   The time zone of the calendar.
   **/
-readonly timeZone : TimeZone 
+readonly timeZone : TimeZone
 
   /**
-  *  
+  *
   **/
- static readonly buddhist : Calendar 
+ static readonly buddhist : Calendar
 
     /**
-  *  
+  *
   **/
- static readonly chinese : Calendar 
+ static readonly chinese : Calendar
 
     /**
-  *  
+  *
   **/
- static readonly coptic : Calendar 
+ static readonly coptic : Calendar
 
     /**
   *   The user's preferred calendar
   **/
- static readonly current : Calendar 
+ static readonly current : Calendar
 
     /**
-  *  
+  *
   **/
- static readonly ethiopicAmeteAlem : Calendar 
+ static readonly ethiopicAmeteAlem : Calendar
 
     /**
-  *  
+  *
   **/
- static readonly ethiopicAmeteMihret : Calendar 
+ static readonly ethiopicAmeteMihret : Calendar
 
     /**
   *   The Gregorian calendar.
   **/
- static readonly gregorian : Calendar 
+ static readonly gregorian : Calendar
 
     /**
-  *  
+  *
   **/
- static readonly hebrew : Calendar 
+ static readonly hebrew : Calendar
 
     /**
-  *  
+  *
   **/
- static readonly indian : Calendar 
+ static readonly indian : Calendar
 
     /**
-  *  
+  *
   **/
- static readonly islamic : Calendar 
+ static readonly islamic : Calendar
 
     /**
-  *  
+  *
   **/
- static readonly islamicCivil : Calendar 
+ static readonly islamicCivil : Calendar
 
     /**
-  *  
+  *
   **/
- static readonly islamicTabular : Calendar 
+ static readonly islamicTabular : Calendar
 
     /**
-  *  
+  *
   **/
- static readonly islamicUmmAlQura : Calendar 
+ static readonly islamicUmmAlQura : Calendar
 
     /**
-  *  
+  *
   **/
- static readonly iso8601 : Calendar 
+ static readonly iso8601 : Calendar
 
     /**
-  *  
+  *
   **/
- static readonly japanese : Calendar 
+ static readonly japanese : Calendar
 
     /**
-  *  
+  *
   **/
- static readonly persian : Calendar 
+ static readonly persian : Calendar
 
     /**
-  *  
+  *
   **/
- static readonly republicOfChina : Calendar 
+ static readonly republicOfChina : Calendar
 
 }
  declare class Color {
-  
+
   /**
   *   Returns a new color that is a linear combination of the receiver and `fraction` of the other color (so, a fraction of 1.0 would just return the `otherColor`. If the colors cannot be blended (for example, if they cannot be converted to the same colorspace), then `null` is returned.
   **/
@@ -265,179 +265,179 @@ blend(otherColor: Color, fraction: Number) : Color|null
   /**
   *   Returns the alpha component of the color.
   **/
-readonly alpha : Number 
+readonly alpha : Number
 
     /**
   *   Returns the blue component of the color, after converting to a `RGB` colorspace.
   **/
-readonly blue : Number 
+readonly blue : Number
 
     /**
   *   Returns the brightness component of the color, after converting to a `HSB` colorspace.
   **/
-readonly brightness : Number 
+readonly brightness : Number
 
     /**
   *   Returns the colorspace of the instance.
   **/
-readonly colorSpace : ColorSpace 
+readonly colorSpace : ColorSpace
 
     /**
   *   Returns the green component of the color, after converting to a `RGB` colorspace.
   **/
-readonly green : Number 
+readonly green : Number
 
     /**
   *   Returns the hue component of the color, after converting to a `HSB` colorspace.
   **/
-readonly hue : Number 
+readonly hue : Number
 
     /**
   *   Returns the red component of the color, after converting to a `RGB` colorspace.
   **/
-readonly red : Number 
+readonly red : Number
 
     /**
   *   Returns the saturation component of the color, after converting to a `HSB` colorspace.
   **/
-readonly saturation : Number 
+readonly saturation : Number
 
     /**
   *   Returns the white component of the color, after converting to a `White` colorspace.
   **/
-readonly white : Number 
+readonly white : Number
 
   /**
   *   A color in the `White` colorspace with white component of 0.0.
   **/
- static readonly black : Color 
+ static readonly black : Color
 
     /**
   *   A color in the `RGB` colorspace with components (0, 0, 1, 1).
   **/
- static readonly blue : Color 
+ static readonly blue : Color
 
     /**
   *   A color in the `RGB` colorspace with components (0.6, 0.4, 0.2, 1).
   **/
- static readonly brown : Color 
+ static readonly brown : Color
 
     /**
   *   A color in the `White` colorspace with white component of 0.0 and alpha of 0.0 ("transparent black").
   **/
- static readonly clear : Color 
+ static readonly clear : Color
 
     /**
   *   A color in the `RGB` colorspace with components (0, 1, 1, 1).
   **/
- static readonly cyan : Color 
+ static readonly cyan : Color
 
     /**
   *   A color in the `White` colorspace with white component of 0.333.
   **/
- static readonly darkGray : Color 
+ static readonly darkGray : Color
 
     /**
   *   A color in the `White` colorspace with white component of 0.5.
   **/
- static readonly gray : Color 
+ static readonly gray : Color
 
     /**
   *   A color in the `RGB` colorspace with components (0, 1, 0, 1).
   **/
- static readonly green : Color 
+ static readonly green : Color
 
     /**
   *   A color in the `White` colorspace with white component of 0.667.
   **/
- static readonly lightGray : Color 
+ static readonly lightGray : Color
 
     /**
   *   A color in the `RGB` colorspace with components (1, 0, 1, 1).
   **/
- static readonly magenta : Color 
+ static readonly magenta : Color
 
     /**
   *   A color in the `RGB` colorspace with components (1, 0.5, 0, 1).
   **/
- static readonly orange : Color 
+ static readonly orange : Color
 
     /**
   *   A color in the `RGB` colorspace with components (1, 0, 1, 1).
   **/
- static readonly purple : Color 
+ static readonly purple : Color
 
     /**
   *   A color in the `RGB` colorspace with components (1, 0, 0, 1).
   **/
- static readonly red : Color 
+ static readonly red : Color
 
     /**
   *   A color in the `White` colorspace with white component of 1.0.
   **/
- static readonly white : Color 
+ static readonly white : Color
 
     /**
   *   A color in the `RGB` colorspace with components (1, 1, 0, 1).
   **/
- static readonly yellow : Color 
+ static readonly yellow : Color
 
 }
  declare class ColorSpace {
-  
-  
-  
-  
+
+
+
+
   /**
   *   A colorspace with cyan, magenta, yellow, black, and alpha components.
   **/
- static readonly CMYK : ColorSpace 
+ static readonly CMYK : ColorSpace
 
     /**
   *   A colorspace with hue, saturation, and value (or brightness) components.
   **/
- static readonly HSB : ColorSpace 
+ static readonly HSB : ColorSpace
 
     /**
   *   A space for named colors, like system defined colors, or specific color palette spaces.
   **/
- static readonly Named : ColorSpace 
+ static readonly Named : ColorSpace
 
     /**
   *   A colorspace that wraps a pattern image.
   **/
- static readonly Pattern : ColorSpace 
+ static readonly Pattern : ColorSpace
 
     /**
   *   The sRGB colorspace with red, green, blue, and alpha components.
   **/
- static readonly RGB : ColorSpace 
+ static readonly RGB : ColorSpace
 
     /**
   *   A colorspace with white and alpha components.
   **/
- static readonly White : ColorSpace 
+ static readonly White : ColorSpace
 
     /**
   *   An array of all items of this enumeration.
   **/
- static readonly all : Array<ColorSpace> 
+ static readonly all : Array<ColorSpace>
 
 }
  declare class Console {
-  
+
   /**
   *   Appends a line to the application console formed by concatenating the given `message` (after converting it to a `String`), any additional arguments separated by spaces, and finally a newline.
   **/
 log(message: Object, additional: Array<Object>|null)
 
    /**
-  *  
+  *
   **/
 error(message: Object, additional: Array<Object>|null)
 
    /**
-  *  
+  *
   **/
 info(message: Object, additional: Array<Object>|null)
 
@@ -451,16 +451,16 @@ warn(message: Object, additional: Array<Object>|null)
   **/
 clear()
 
-  
-  
-  
+
+
+
 }
  declare class ContentTree {
-  
-  
-  
-  
-  
+
+
+
+
+
 }
  declare class Credentials {
   constructor()
@@ -479,12 +479,12 @@ write(service: String, username: String, password: String)
   **/
 remove(service: String)
 
-  
-  
-  
+
+
+
 }
  declare class Data {
-  
+
   /**
   *   Convert to a `String`, assuming that this `Data` is encoded as UTF8.
   **/
@@ -501,24 +501,24 @@ toBase64() : String
  static fromString(string: String) : Data
 
    /**
-  *  
+  *
   **/
  static fromBase64(string: String) : Data
 
   /**
   *   Number of bytes in this data.
   **/
-readonly length : Number 
+readonly length : Number
 
     /**
-  *  
+  *
   **/
-readonly toObject : Object|null 
+readonly toObject : Object|null
 
-  
+
 }
  declare class Database {
-  
+
   /**
   *   Returns the first top-level `Tag` with the given name, or `null`.
   **/
@@ -629,81 +629,81 @@ canPasteTasks(pasteboard: Pasteboard) : Boolean
   **/
 pasteTasksFromPasteboard(pasteboard: Pasteboard) : Array<Task>
 
-  
+
   /**
   *   Returns true if there are redoable actions.
   **/
-readonly canRedo : Boolean 
+readonly canRedo : Boolean
 
     /**
   *   Returns true if there are undoable actions.
   **/
-readonly canUndo : Boolean 
+readonly canUndo : Boolean
 
     /**
-  *  
+  *
   **/
-readonly document : DatabaseDocument|null 
+readonly document : DatabaseDocument|null
 
     /**
   *   Returns a flat array of all folders in the database, sorted by their order in the database.
   **/
-readonly flattenedFolders : FolderArray 
+readonly flattenedFolders : FolderArray
 
     /**
   *   Returns a flat array of all projects in the database, sorted by their order in the database.
   **/
-readonly flattenedProjects : ProjectArray 
+readonly flattenedProjects : ProjectArray
 
     /**
   *   Returns a flat array of all folders and project in the database, sorted by their order in the database.
   **/
-readonly flattenedSections : SectionArray 
+readonly flattenedSections : SectionArray
 
     /**
   *   Returns a flat array of all tags in the database, sorted by their order in the database.
   **/
-readonly flattenedTags : TagArray 
+readonly flattenedTags : TagArray
 
     /**
   *   Returns a flat array of all tasks in the database, including inbox items, root tasks for projects, task groups and individual tasks. Tasks are sorted by their order in the database, with the inbox preceeding the library.
   **/
-readonly flattenedTasks : TaskArray 
+readonly flattenedTasks : TaskArray
 
     /**
   *   Returns the top-level folders in the database.
   **/
-readonly folders : FolderArray 
+readonly folders : FolderArray
 
     /**
   *   Returns a copy of the `Task`s currently in the inbox.
   **/
-readonly inbox : Inbox 
+readonly inbox : Inbox
 
     /**
   *   Returns the top-level folders and projects in the database.
   **/
-readonly library : Library 
+readonly library : Library
 
     /**
   *   Returns the top-level folders in the database.
   **/
-readonly projects : ProjectArray 
+readonly projects : ProjectArray
 
     /**
-  *  
+  *
   **/
-readonly settings : Settings 
+readonly settings : Settings
 
     /**
   *   Returns the top-level tags in the database.
   **/
-readonly tags : Tags 
+readonly tags : Tags
 
-  
+
 }
  declare class DatabaseDocument {
-  
+
   /**
   *   Returns a `Promise` that will yield either a newly created and displayed `Window` or an error. On macOS, this method respects the System Preference governing new window behavior (tab vs. window). That preference is accessible at `System Preferences` > `Dock` > `Prefer tabs when opening documents`.
   **/
@@ -714,85 +714,85 @@ newWindow() : Promise<DocumentWindow>
   **/
 newTabOnWindow(window: DocumentWindow) : Promise<DocumentWindow>
 
-  
-  /**
-  *  
-  **/
-readonly windows : Array<DocumentWindow> 
 
-  
+  /**
+  *
+  **/
+readonly windows : Array<DocumentWindow>
+
+
 }
  declare class DatabaseObject {
-  
-  
-  
+
+
+
   /**
   *   Returns the identifier for this object.
   **/
-readonly id : ObjectIdentifier 
+readonly id : ObjectIdentifier
 
-  
+
 }
  declare class DateComponents {
   constructor()
-  
-  
+
+
   /**
-  *  
+  *
   **/
-readonly date : Date|null 
+readonly date : Date|null
 
     /**
-  *  
+  *
   **/
 day : Number|null
 
     /**
-  *  
+  *
   **/
 era : Number|null
 
     /**
-  *  
+  *
   **/
 hour : Number|null
 
     /**
-  *  
+  *
   **/
 minute : Number|null
 
     /**
-  *  
+  *
   **/
 month : Number|null
 
     /**
-  *  
+  *
   **/
 nanosecond : Number|null
 
     /**
-  *  
+  *
   **/
 second : Number|null
 
     /**
-  *  
+  *
   **/
 timeZone : TimeZone|null
 
     /**
-  *  
+  *
   **/
 year : Number|null
 
-  
+
 }
  declare class DatedObject {
-  
-  
-  
+
+
+
   /**
   *   Returns the date the object was first saved. If the object is newly inserted, this will be `null`. For newly inserted objects, the `added` property may be set (but once an object is saved for the first time, the property is read-only).
   **/
@@ -803,10 +803,10 @@ added : Date|null
   **/
 modified : Date|null
 
-  
+
 }
  declare class Decimal {
-  
+
   /**
   *   Converts the `Decimal` to a `String` representation.
   **/
@@ -847,96 +847,96 @@ equals(number: Decimal) : Boolean
   **/
  static fromString(string: String) : Decimal
 
-  
+
   /**
   *   Returns the maximum representable `Decimal` value.
   **/
- static readonly maximum : Decimal 
+ static readonly maximum : Decimal
 
     /**
   *   Returns the minimum representable `Decimal` value.
   **/
- static readonly minimum : Decimal 
+ static readonly minimum : Decimal
 
     /**
   *   Returns a `Decimal` that represents a non-number value. Any arithmetic operations involving non-number values will return `notANumber`.
   **/
- static readonly notANumber : Decimal 
+ static readonly notANumber : Decimal
 
     /**
   *   Returns a `Decimal` representing one.
   **/
- static readonly one : Decimal 
+ static readonly one : Decimal
 
     /**
   *   Returns a `Decimal` representing zero.
   **/
- static readonly zero : Decimal 
+ static readonly zero : Decimal
 
 }
  declare class Device {
-  
-  
-  
+
+
+
   /**
   *   A convenience that returns `true` on iPhone and iPad devices
   **/
-readonly iOS : Boolean 
+readonly iOS : Boolean
 
     /**
   *   A convenience that returns `true` only on iPad devices, but not on iPhone devices.
   **/
-readonly iPad : Boolean 
+readonly iPad : Boolean
 
     /**
   *   A convenience that returns `true` only on Mac devices.
   **/
-readonly mac : Boolean 
+readonly mac : Boolean
 
     /**
   *   The current operation system version running on the device
   **/
-readonly operatingSystemVersion : Version 
+readonly operatingSystemVersion : Version
 
     /**
   *   The general type of the current device
   **/
-readonly type : DeviceType|null 
+readonly type : DeviceType|null
 
   /**
   *   The device the current application is running on.
   **/
- static readonly current : Device 
+ static readonly current : Device
 
 }
  declare class DeviceType {
-  
-  
-  
-  
+
+
+
+
   /**
   *   An array of all items of this enumeration.
   **/
- static readonly all : Array<DeviceType> 
+ static readonly all : Array<DeviceType>
 
     /**
   *   An iPad
   **/
- static readonly iPad : DeviceType 
+ static readonly iPad : DeviceType
 
     /**
   *   An iPhone
   **/
- static readonly iPhone : DeviceType 
+ static readonly iPhone : DeviceType
 
     /**
   *   A Mac device
   **/
- static readonly mac : DeviceType 
+ static readonly mac : DeviceType
 
 }
  declare class Document {
-  
+
   /**
   *   Close this document. If for some reason the document cannot be closed, the `didCancel` function may be called at some point in the future, with the original document as the single argument. For example, on the Mac the user may review unsaved changes and may cancel the close operation. If the document is closed, the `didCancel` function will not be called at all.
   **/
@@ -985,32 +985,32 @@ show(resultFunction: Function|null)
   /**
   *   Whether there are currently any actions that can be redone.
   **/
-readonly canRedo : Boolean 
+readonly canRedo : Boolean
 
     /**
   *   Whether there are currently any actions that can be undone.
   **/
-readonly canUndo : Boolean 
+readonly canUndo : Boolean
 
     /**
   *   The file type identifier the document uses when saving, if set.
   **/
-readonly fileType : String|null 
+readonly fileType : String|null
 
     /**
   *   Document name.
   **/
-readonly name : String|null 
+readonly name : String|null
 
     /**
   *   A list of all of the file types that this document can be written as.
   **/
-readonly writableTypes : Array<String> 
+readonly writableTypes : Array<String>
 
-  
+
 }
  declare class DocumentWindow {
-  
+
   /**
   *   Clears the current selection and then selects the given objects, if present in the current perspective of this window. On iOS, if `objects` contains more than one object, this will put the outline view into edit mode to accomodate multiple selection.
   **/
@@ -1026,11 +1026,11 @@ forecastDayForDate(date: Date) : ForecastDay
   **/
 selectForecastDays(days: Array<ForecastDay>)
 
-  
+
   /**
   *   The tree of nodes representing the content area of the window.
   **/
-readonly content : ContentTree|null 
+readonly content : ContentTree|null
 
     /**
   *   The Folders and Projects that the window is focusing on, limiting the sidebar to show only these items. Focus is only supported on macOS- getting or setting this on iOS results in an error.
@@ -1040,29 +1040,29 @@ focus : SectionArray|null
     /**
   *   Whether or not this window is a tab. This is not available on iOS.
   **/
-readonly isTab : Boolean 
+readonly isTab : Boolean
 
     /**
-  *  
+  *
   **/
 perspective : Perspective.BuiltIn|Perspective.Custom|null
 
     /**
   *   The current selection in the window.
   **/
-readonly selection : Selection 
+readonly selection : Selection
 
     /**
   *   The tree of nodes representing the sidebar of the window.
   **/
-readonly sidebar : SidebarTree|null 
+readonly sidebar : SidebarTree|null
 
     /**
   *   The array of sibling `Window` objects that are in tabs alongside this `Window`. If `isTab` is false, then this will return an array that solely contains this `Window`. This is not available on iOS.
   **/
-readonly tabGroupWindows : Array<DocumentWindow> 
+readonly tabGroupWindows : Array<DocumentWindow>
 
-  
+
 }
  declare class Email {
   constructor()
@@ -1071,38 +1071,38 @@ readonly tabGroupWindows : Array<DocumentWindow>
   **/
 generate()
 
-  
+
   /**
-  *  
+  *
   **/
 blindCarbonCopy : String|null
 
     /**
-  *  
+  *
   **/
 body : String|null
 
     /**
-  *  
+  *
   **/
 carbonCopy : String|null
 
     /**
-  *  
+  *
   **/
 fileWrappers : Array<FileWrapper>
 
     /**
-  *  
+  *
   **/
 receiver : String|null
 
     /**
-  *  
+  *
   **/
 subject : String|null
 
-  
+
 }
  declare class FilePicker {
   constructor()
@@ -1111,7 +1111,7 @@ subject : String|null
   **/
 show() : Promise<Array<URL>>
 
-  
+
   /**
   *   If `true`, then folders may be selected, but not files. In this case, `types` is ignored. Defaults to `false`.
   **/
@@ -1132,7 +1132,7 @@ multiple : Boolean
   **/
 types : Array<TypeIdentifier>|null
 
-  
+
 }
  declare class FileSaver {
   constructor()
@@ -1141,7 +1141,7 @@ types : Array<TypeIdentifier>|null
   **/
 show(fileWrapper: FileWrapper) : Promise<URL>
 
-  
+
   /**
   *   A message to display describing what file is being saved. This is currently only supported on macOS.
   **/
@@ -1162,10 +1162,10 @@ prompt : String
   **/
 types : Array<TypeIdentifier>|null
 
-  
+
 }
  declare class FileWrapper {
-  
+
   /**
   *   Returns the unique file name that will be used for the given child `FileWrapper`, or `null` if this file wrapper is not a child of the receiver.
   **/
@@ -1184,17 +1184,17 @@ filenameForChild(child: FileWrapper) : String|null
   /**
   *   Returns an `Array` of child `FileWrappers`, if this represents a directory. Otherwise, an empty array is returned.
   **/
-readonly children : Array<FileWrapper> 
+readonly children : Array<FileWrapper>
 
     /**
   *   Returns the regular file contents of the wrapper, if this represents a regular file. Otherwise, `null` is returned.
   **/
-readonly contents : Data|null 
+readonly contents : Data|null
 
     /**
   *   Returns the destination if this represents a symbolic link. Otherwise, `null` is returned.
   **/
-readonly destination : URL|null 
+readonly destination : URL|null
 
     /**
   *   Returns the actual file name that was last read for this file wrapper. Depending on the names of other sibling wrappers, this may not be what file name will be written.
@@ -1209,35 +1209,35 @@ preferredFilename : String|null
     /**
   *   Returns the type of this `FileWrapper`.
   **/
-readonly type : FileWrapper.Type 
+readonly type : FileWrapper.Type
 
-  
+
 }
 declare namespace FileWrapper {
           class Type {
-  
-  
-  
-  
+
+
+
+
   /**
   *   A `FileWrapper` that represents a directory with zero or more child wrappers.
   **/
- static readonly Directory : FileWrapper.Type 
+ static readonly Directory : FileWrapper.Type
 
     /**
   *   A `FileWrapper` that represents a regular file with data contents.
   **/
- static readonly File : FileWrapper.Type 
+ static readonly File : FileWrapper.Type
 
     /**
   *   A `FileWrapper` that represents a symbolic link to another location.
   **/
- static readonly Link : FileWrapper.Type 
+ static readonly Link : FileWrapper.Type
 
     /**
   *   An array of all items of this enumeration.
   **/
- static readonly all : Array<FileWrapper.Type> 
+ static readonly all : Array<FileWrapper.Type>
 
 }
 
@@ -1276,52 +1276,52 @@ apply(fn: Function) : ApplyResult|null
   /**
   *   Returns a location referring to the position just after this folder within its containing `Folder` or `Database`.
   **/
-readonly after : Folder.ChildInsertionLocation 
+readonly after : Folder.ChildInsertionLocation
 
     /**
   *   Returns a location referring to the position just before this folder within its containing `Folder` or `Database`.
   **/
-readonly before : Folder.ChildInsertionLocation 
+readonly before : Folder.ChildInsertionLocation
 
     /**
   *   Returns a location referring to the the beginning of the contained projects and folders in this folder.
   **/
-readonly beginning : Folder.ChildInsertionLocation 
+readonly beginning : Folder.ChildInsertionLocation
 
     /**
   *   An alias for `sections`.
   **/
-readonly children : SectionArray 
+readonly children : SectionArray
 
     /**
   *   Returns a location referring to the the ending of the contained projects and folders in this folder.
   **/
-readonly ending : Folder.ChildInsertionLocation 
+readonly ending : Folder.ChildInsertionLocation
 
     /**
   *   An alias for `flattenedSections`.
   **/
-readonly flattenedChildren : SectionArray 
+readonly flattenedChildren : SectionArray
 
     /**
   *   Returns a flat array of all folders in this folder, sorted by their order in the database.
   **/
-readonly flattenedFolders : FolderArray 
+readonly flattenedFolders : FolderArray
 
     /**
   *   Returns a flat array of all projects in this folder, sorted by their order in the database.
   **/
-readonly flattenedProjects : ProjectArray 
+readonly flattenedProjects : ProjectArray
 
     /**
   *   Returns a flat array of all folders and project in this folder, sorted by their order in the database.
   **/
-readonly flattenedSections : SectionArray 
+readonly flattenedSections : SectionArray
 
     /**
   *   Returns the folders contained directly as children of this folder.
   **/
-readonly folders : FolderArray 
+readonly folders : FolderArray
 
     /**
   *   The name of the folder.
@@ -1331,100 +1331,100 @@ name : String
     /**
   *   The parent `Folder` which contains this folder.
   **/
-readonly parent : Folder|null 
+readonly parent : Folder|null
 
     /**
   *   Returns the projects contained directly as children of this folder.
   **/
-readonly projects : ProjectArray 
+readonly projects : ProjectArray
 
     /**
   *   Returns a sorted list of the folders and projects contained directly within this folder.
   **/
-readonly sections : SectionArray 
+readonly sections : SectionArray
 
     /**
   *   The folder's status.
   **/
 status : Folder.Status
 
-  
+
 }
 declare namespace Folder {
           class ChildInsertionLocation {
-  
-  
-  
-  
-  
+
+
+
+
+
 }
 
       }declare namespace Folder {
           class Status {
-  
-  
-  
-  
+
+
+
+
   /**
   *   The folder is active.
   **/
- static readonly Active : Folder.Status 
+ static readonly Active : Folder.Status
 
     /**
   *   The folder has been dropped.
   **/
- static readonly Dropped : Folder.Status 
+ static readonly Dropped : Folder.Status
 
     /**
   *   An array of all items of this enumeration.
   **/
- static readonly all : Array<Folder.Status> 
+ static readonly all : Array<Folder.Status>
 
 }
 
       } declare class FolderArray {
-  
+
   /**
   *   Returns the first `Folder` contained directly in this array with the given name.
   **/
 byName(name: String) : Folder|null
 
-  
-  
-  
+
+
+
 }
  declare class ForecastDay {
-  
+
   /**
   *   The status of the badge on this forecast day.
   **/
 badgeKind() : ForecastDay.Status
 
-  
+
   /**
   *   The number of available tasks on this forecast day.
   **/
-readonly badgeCount : Number 
+readonly badgeCount : Number
 
     /**
   *   The date this forecast day represents. If this day's kind is `Past` or `DistantFuture` the date returned will be years from the current time.
   **/
-readonly date : Date 
+readonly date : Date
 
     /**
   *   The number of remaining deferred tasks on this forecast day.
   **/
-readonly deferredCount : Number 
+readonly deferredCount : Number
 
     /**
-  *  
+  *
   **/
-readonly kind : ForecastDay.Kind 
+readonly kind : ForecastDay.Kind
 
     /**
-  *  
+  *
   **/
-readonly name : String 
+readonly name : String
 
   /**
   *   Determines whether or not badges on Forecast days include items that are not yet available.
@@ -1434,72 +1434,72 @@ readonly name : String
 }
 declare namespace ForecastDay {
           class Kind {
-  
-  
-  
-  
+
+
+
+
   /**
   *   The node represents a specific day in the Forecast week or month grid.
   **/
- static readonly Day : ForecastDay.Kind 
+ static readonly Day : ForecastDay.Kind
 
     /**
   *   The node represents all days more than a year from now.
   **/
- static readonly DistantFuture : ForecastDay.Kind 
+ static readonly DistantFuture : ForecastDay.Kind
 
     /**
   *   The node represents a month within the next year.
   **/
- static readonly FutureMonth : ForecastDay.Kind 
+ static readonly FutureMonth : ForecastDay.Kind
 
     /**
   *   The node represents all days in the past.
   **/
- static readonly Past : ForecastDay.Kind 
+ static readonly Past : ForecastDay.Kind
 
     /**
   *   The node represents today.
   **/
- static readonly Today : ForecastDay.Kind 
+ static readonly Today : ForecastDay.Kind
 
     /**
   *   An array of all items of this enumeration.
   **/
- static readonly all : Array<ForecastDay.Kind> 
+ static readonly all : Array<ForecastDay.Kind>
 
 }
 
       }declare namespace ForecastDay {
           class Status {
-  
-  
-  
-  
+
+
+
+
   /**
   *   There is at least one available task on the node's day, but no task is due soon or overdue. The node's badgeCount is the number of available tasks.
   **/
- static readonly Available : ForecastDay.Status 
+ static readonly Available : ForecastDay.Status
 
     /**
   *   There is at least one available task on the node's day, and at least one task due that day is due soon, but no tasks due that day are overdue. The node's badgeCount is the number of available tasks.
   **/
- static readonly DueSoon : ForecastDay.Status 
+ static readonly DueSoon : ForecastDay.Status
 
     /**
   *   There are no available tasks on the node's day. The node's badgeCount is guaranteed to be zero.
   **/
- static readonly NoneAvailable : ForecastDay.Status 
+ static readonly NoneAvailable : ForecastDay.Status
 
     /**
   *   There is at least one available task on the node's day, and at least one task due that day is overdue. The node's badgeCount is the number of available tasks.
   **/
- static readonly Overdue : ForecastDay.Status 
+ static readonly Overdue : ForecastDay.Status
 
     /**
   *   An array of all items of this enumeration.
   **/
- static readonly all : Array<ForecastDay.Status> 
+ static readonly all : Array<ForecastDay.Status>
 
 }
 
@@ -1520,11 +1520,11 @@ removeField(field: Form.Field)
   **/
 show(title: String, confirmTitle: String) : Promise<Form>
 
-  
+
   /**
   *   The current `Field` instances in the form, which will be visible to the user entering input.
   **/
-readonly fields : Array<Form.Field> 
+readonly fields : Array<Form.Field>
 
     /**
   *   A function to check whether the entered values are acceptable. The form to validate is passed as the argument and the function is expected to return a boolean result or null to perform default validation. If an `Error` is thrown, it's message will be displayed in the form as the reason for validation failure. Note that the validation function may add or remove fields and update entries in the `values` object (which will cause the interface to be updated). This is called any time the user edits values, or a field is added or removed. If no `validate` function is specified or it returns `null`, some per-field default validation will be performed (see `Form.Field.Option`. If the `validate` function returns a boolean result, no default validation will be performed.
@@ -1534,59 +1534,59 @@ validate : Function|null
     /**
   *   An object with the collected values for each field, stored under the key for that field.
   **/
-readonly values : Object 
+readonly values : Object
 
-  
+
 }
 declare namespace Form {
           class Field {
-  
-  
-  
+
+
+
   /**
   *   Human readable string used as the label for this field.
   **/
-readonly displayName : String|null 
+readonly displayName : String|null
 
     /**
   *   Key to use when storing the value for this field in the containing form's `values` object.
   **/
-readonly key : String 
+readonly key : String
 
-  
+
 }
  namespace Field {
           class Checkbox {
   constructor(key: String, displayName: String|null, value: Boolean|null)
-  
-  
-  
-  
+
+
+
+
 }
 
       } namespace Field {
           class Date {
   constructor(key: String, displayName: String|null, value: Date|null, formatter: Formatter.Date|null)
-  
-  
-  
-  
+
+
+
+
 }
 
       } namespace Field {
           class MultipleOptions {
   constructor(key: String, displayName: String|null, options: Array<Object>, names: Array<String>|null, selected: Array<Object>)
-  
-  
-  
-  
+
+
+
+
 }
 
       } namespace Field {
           class Option {
   constructor(key: String, displayName: String|null, options: Array<Object>, names: Array<String>|null, selected: Object|null, nullOptionTitle: String|null)
-  
-  
+
+
   /**
   *   If set to `true`, an option will be added to allow selecting `null`.
   **/
@@ -1597,45 +1597,45 @@ allowsNull : Boolean
   **/
 nullOptionTitle : String|null
 
-  
+
 }
 
       } namespace Field {
           class Password {
   constructor(key: String, displayName: String|null, value: String|null)
-  
-  
-  
-  
+
+
+
+
 }
 
       } namespace Field {
           class String {
   constructor(key: String, displayName: String|null, value: Object|null, formatter: Formatter|null)
-  
-  
-  
-  
+
+
+
+
 }
 
       }
       } declare class Formatter {
-  
-  
-  
-  
-  
+
+
+
+
+
 }
 declare namespace Formatter {
           class Date {
-  
+
   /**
-  *  
+  *
   **/
 stringFromDate(date: Date) : String
 
    /**
-  *  
+  *
   **/
 dateFromString(string: String) : Date|null
 
@@ -1650,68 +1650,68 @@ dateFromString(string: String) : Date|null
  static wthFormat(format: String) : Formatter.Date
 
   /**
-  *  
+  *
   **/
 calendar : Calendar
 
     /**
-  *  
+  *
   **/
-readonly dateFormat : String 
+readonly dateFormat : String
 
     /**
-  *  
+  *
   **/
 locale : Locale
 
     /**
-  *  
+  *
   **/
 timeZone : TimeZone
 
   /**
   *   Return a date formatter that produces ISO-8601 formatted dates, using the Gregorian calendar and the UTC time zone.
   **/
- static readonly iso8601 : Formatter.Date 
+ static readonly iso8601 : Formatter.Date
 
 }
  namespace Date {
           class Style {
-  
-  
-  
-  
+
+
+
+
   /**
   *   Use the user's "full" format as selected in system settings.
   **/
- static readonly Full : Formatter.Date.Style 
+ static readonly Full : Formatter.Date.Style
 
     /**
   *   Use the user's "long" format as selected in system settings.
   **/
- static readonly Long : Formatter.Date.Style 
+ static readonly Long : Formatter.Date.Style
 
     /**
   *   Use the user's "medium" format as selected in system settings.
   **/
- static readonly Medium : Formatter.Date.Style 
+ static readonly Medium : Formatter.Date.Style
 
     /**
   *   Use the user's "short" format as selected in system settings.
   **/
- static readonly Short : Formatter.Date.Style 
+ static readonly Short : Formatter.Date.Style
 
     /**
   *   An array of all items of this enumeration.
   **/
- static readonly all : Array<Formatter.Date.Style> 
+ static readonly all : Array<Formatter.Date.Style>
 
 }
 
       }
       }declare namespace Formatter {
           class Decimal {
-  
+
   /**
   *   Format a `Decimal` as a string, based on the rules set on the formatter.
   **/
@@ -1755,37 +1755,37 @@ zeroSymbol : String|null
   /**
   *   Deprecated: Please use the `currencyCode` property on `Locale` instead.
   **/
- static readonly currencyCodes : Array<String> 
+ static readonly currencyCodes : Array<String>
 
     /**
   *   Returns a new formatter that can be configured with custom settings.
   **/
- static readonly custom : Formatter.Decimal 
+ static readonly custom : Formatter.Decimal
 
     /**
   *   Returns a new number formatter that will use both a decimal separator.
   **/
- static readonly decimal : Formatter.Decimal 
+ static readonly decimal : Formatter.Decimal
 
     /**
   *   Returns a new number formatter that will display the value as a percentage.
   **/
- static readonly percent : Formatter.Decimal 
+ static readonly percent : Formatter.Decimal
 
     /**
   *   Returns a new number formatter that will display the value as a percentage with a decimal separator.
   **/
- static readonly percentWithDecimal : Formatter.Decimal 
+ static readonly percentWithDecimal : Formatter.Decimal
 
     /**
   *   Returns a new number formatter that will not use any separators.
   **/
- static readonly plain : Formatter.Decimal 
+ static readonly plain : Formatter.Decimal
 
     /**
   *   Returns a new number formatter that will use both a thousands and decimal separator.
   **/
- static readonly thousandsAndDecimal : Formatter.Decimal 
+ static readonly thousandsAndDecimal : Formatter.Decimal
 
 }
 
@@ -1793,136 +1793,136 @@ zeroSymbol : String|null
           class Duration {
   constructor()
   /**
-  *  
+  *
   **/
 stringFromDecimal(number: Decimal) : String|null
 
    /**
-  *  
+  *
   **/
 decimalFromString(string: String) : Decimal|null
 
-  
+
   /**
-  *  
+  *
   **/
 hoursPerDay : Number
 
     /**
-  *  
+  *
   **/
 hoursPerWeek : Number
 
     /**
-  *  
+  *
   **/
 useVerboseFormat : Boolean
 
-  
+
 }
 
       } declare class Image {
-  
-  
-  
-  
-  
+
+
+
+
+
 }
  declare class Inbox {
-  
+
   /**
   *   Calls the given function for each `Task` in the `Inbox` and recursively into any child tasks.
   **/
 apply(fn: Function) : ApplyResult|null
 
-  
+
   /**
   *   A location that can be used when adding, duplicating, or moving tasks.
   **/
-readonly beginning : Task.ChildInsertionLocation 
+readonly beginning : Task.ChildInsertionLocation
 
     /**
   *   A location that can be used when adding, duplicating, or moving tasks.
   **/
-readonly ending : Task.ChildInsertionLocation 
+readonly ending : Task.ChildInsertionLocation
 
-  
+
 }
  declare class Library {
-  
+
   /**
   *   Calls the given function for each `Folder` and `Project` in the `Library` and recursively into any child folders. Note that the tasks in projects are not descended into.
   **/
 apply(fn: Function) : ApplyResult|null
 
-  
+
   /**
   *   Returns a location referring to the beginning of the top-level projects and folders in the database. (Reference this using `library.beginning`.)
   **/
-readonly beginning : Folder.ChildInsertionLocation 
+readonly beginning : Folder.ChildInsertionLocation
 
     /**
   *   Returns a location referring to the ending of the top-level projects and folders in the database. (Reference this using `library.ending`.)
   **/
-readonly ending : Folder.ChildInsertionLocation 
+readonly ending : Folder.ChildInsertionLocation
 
-  
+
 }
  declare class LigatureStyle {
-  
-  
-  
-  
+
+
+
+
   /**
   *   Use all of the available ligatures.
   **/
- static readonly All : LigatureStyle 
+ static readonly All : LigatureStyle
 
     /**
   *   Use ligatures that are required for proper rendering of text.
   **/
- static readonly Essential : LigatureStyle 
+ static readonly Essential : LigatureStyle
 
     /**
   *   Use the default ligatures for the given script.
   **/
- static readonly Standard : LigatureStyle 
+ static readonly Standard : LigatureStyle
 
     /**
   *   An array of all items of this enumeration.
   **/
- static readonly all : Array<LigatureStyle> 
+ static readonly all : Array<LigatureStyle>
 
 }
  declare class Locale {
   constructor(identifier: String)
-  
-  
+
+
   /**
   *   The calendar for the locale.
   **/
-readonly calendar : Calendar 
+readonly calendar : Calendar
 
     /**
   *   The currency code for the locale.
   **/
-readonly currencyCode : String|null 
+readonly currencyCode : String|null
 
     /**
   *   The ISO locale identifier for this object.
   **/
-readonly identifier : String 
+readonly identifier : String
 
   /**
   *   The list of known ISO locale identifiers.
   **/
- static readonly identifiers : Array<String> 
+ static readonly identifiers : Array<String>
 
 }
  declare class MenuItem {
-  
-  
-  
+
+
+
   /**
   *   If true, a checkmark is displayed next to the `MenuItem`'s label.
   **/
@@ -1933,41 +1933,41 @@ checked : Boolean
   **/
 label : String
 
-  
+
 }
  declare class NamedStyle {
-  
+
   /**
   *   Removes the `NamedStyle` from the document. Any references to it are disconnected as well.
   **/
 remove()
 
-  
+
   /**
   *   Returns a `NamedStylePosition` that indicates the slot after this item.
   **/
-readonly after : NamedStylePosition 
+readonly after : NamedStylePosition
 
     /**
   *   Returns a `NamedStylePosition` that indicates the slot before this item.
   **/
-readonly before : NamedStylePosition 
+readonly before : NamedStylePosition
 
     /**
   *   A unique identifier for the style, which is suitable for long-lived references.
   **/
-readonly identifier : String 
+readonly identifier : String
 
     /**
   *   The name of the style that is presented in the interface.
   **/
 name : String
 
-  
+
 }
 declare namespace NamedStyle {
           class List {
-  
+
   /**
   *   Makes a new `NamedStyle` at the end of the `NamedStyleList`, and optionally assigns it a name.
   **/
@@ -1989,54 +1989,54 @@ byIdentifier(identifier: String) : NamedStyle|null
 moveStyles(styles: Array<NamedStyle>, position: NamedStylePosition)
 
    /**
-  *  
+  *
   **/
 duplicateStyles(styles: Array<NamedStyle>, position: NamedStylePosition) : Array<NamedStyle>
 
-  
+
   /**
   *   Returns the list of all `NamedStyles`. Note that the order determine which attribute values are applied if two named styles have conflicting settings.
   **/
-readonly all : Array<NamedStyle> 
+readonly all : Array<NamedStyle>
 
     /**
   *   Returns a `NamedStylePosition` that indicates the position before any existing named styles.
   **/
-readonly beginning : NamedStylePosition 
+readonly beginning : NamedStylePosition
 
     /**
   *   Returns a `NamedStylePosition` that indicates the position before after existing named styles.
   **/
-readonly end : NamedStylePosition 
+readonly end : NamedStylePosition
 
-  
+
 }
 
       } declare class NamedStylePosition {
-  
-  
-  
-  
-  
+
+
+
+
+
 }
  declare class ObjectIdentifier {
-  
-  
-  
+
+
+
   /**
   *   Returns the constructor object that would be used for instances of the class for this `ObjectIdentifier`.
   **/
-readonly objectClass : Object|null 
+readonly objectClass : Object|null
 
     /**
   *   Returns the primary key of the object identifier.
   **/
-readonly primaryKey : String 
+readonly primaryKey : String
 
-  
+
 }
  declare class Pasteboard {
-  
+
   /**
   *   The first type from the provided list which is available on the pasteboard, or `null` if none are available.
   **/
@@ -2100,22 +2100,22 @@ colors : Array<Color>|null
     /**
   *   Returns `true` if the pasteboard contains one or more colors.
   **/
-readonly hasColors : Boolean 
+readonly hasColors : Boolean
 
     /**
   *   Returns `true` if the pasteboard contains one or more images.
   **/
-readonly hasImages : Boolean 
+readonly hasImages : Boolean
 
     /**
   *   Returns `true` if the pasteboard contains one or more strings.
   **/
-readonly hasStrings : Boolean 
+readonly hasStrings : Boolean
 
     /**
   *   Returns `true` if the pasteboard contains one or more URLs.
   **/
-readonly hasURLs : Boolean 
+readonly hasURLs : Boolean
 
     /**
   *   Gets or sets the pasteboard content as a single image.
@@ -2145,12 +2145,12 @@ strings : Array<String>|null
     /**
   *   The list of pasteboard types currently available on the pasteboard.
   **/
-readonly types : Array<TypeIdentifier> 
+readonly types : Array<TypeIdentifier>
 
   /**
   *   The `Pasteboard` used for user-initiated copy/paste support.
   **/
- static readonly general : Pasteboard 
+ static readonly general : Pasteboard
 
 }
 declare namespace Pasteboard {
@@ -2176,29 +2176,29 @@ stringForType(type: TypeIdentifier) : String|null
   **/
 setStringForType(string: String, type: TypeIdentifier)
 
-  
+
   /**
   *   The list of types available for this pasteboard item.
   **/
-readonly types : Array<TypeIdentifier> 
+readonly types : Array<TypeIdentifier>
 
-  
+
 }
 
       } declare class Perspective {
-  
-  
-  
-  
+
+
+
+
   /**
   *   Returns all the built-in and custom perspectives.
   **/
- static readonly all : Array<Perspective.BuiltIn>|Perspective.Custom 
+ static readonly all : Array<Perspective.BuiltIn>|Perspective.Custom
 
 }
 declare namespace Perspective {
           class Custom {
-  
+
   /**
   *   Returns an archived file wrapper for the custom perspective. The file wrapper's preferred filename will be the name of the perspective with an appropriate file extension applied. Its contents will include a plist representing the perspective's settings, along with any image attachments needed to display its icon.
   **/
@@ -2222,237 +2222,237 @@ writeFileRepresentationIntoDirectory(parentURL: URL) : URL
   /**
   *   The unique identifier of the custom perspective.
   **/
-readonly identifier : String 
+readonly identifier : String
 
     /**
   *   The name of the custom perspective.
   **/
-readonly name : String 
+readonly name : String
 
   /**
   *   Returns all the custom perspectives.
   **/
- static readonly all : Array<Perspective.Custom> 
+ static readonly all : Array<Perspective.Custom>
 
 }
 
       }declare namespace Perspective {
           class BuiltIn {
-  
-  
-  
+
+
+
   /**
   *   The name of the built in perspective.
   **/
-readonly name : String 
+readonly name : String
 
   /**
   *   The flagged items.
   **/
- static readonly Flagged : Perspective.BuiltIn 
+ static readonly Flagged : Perspective.BuiltIn
 
     /**
   *   The upcoming due items.
   **/
- static readonly Forecast : Perspective.BuiltIn 
+ static readonly Forecast : Perspective.BuiltIn
 
     /**
   *   The inbox of tasks.
   **/
- static readonly Inbox : Perspective.BuiltIn 
+ static readonly Inbox : Perspective.BuiltIn
 
     /**
   *   Nearby items on a map (iOS only).
   **/
- static readonly Nearby : Perspective.BuiltIn 
+ static readonly Nearby : Perspective.BuiltIn
 
     /**
   *   The library of projects.
   **/
- static readonly Projects : Perspective.BuiltIn 
+ static readonly Projects : Perspective.BuiltIn
 
     /**
   *   The projects needing review.
   **/
- static readonly Review : Perspective.BuiltIn 
+ static readonly Review : Perspective.BuiltIn
 
     /**
   *   A search of the database. This perspective cannot be set, but might be reported if the user is searching.
   **/
- static readonly Search : Perspective.BuiltIn 
+ static readonly Search : Perspective.BuiltIn
 
     /**
   *   The hierarchy of tags.
   **/
- static readonly Tags : Perspective.BuiltIn 
+ static readonly Tags : Perspective.BuiltIn
 
     /**
   *   An array of all items of this enumeration.
   **/
- static readonly all : Array<Perspective.BuiltIn> 
+ static readonly all : Array<Perspective.BuiltIn>
 
 }
 
       } declare class PlugIn {
-  
+
   /**
   *   Looks for a `PlugIn.Library` in the receiver and returns it if found.
   **/
 library(identifier: String) : Object|null
 
    /**
-  *  
+  *
   **/
 action(identifier: String) : PlugIn.Action|null
 
    /**
-  *  
+  *
   **/
 handler(identifier: String) : PlugIn.Handler|null
 
    /**
-  *  
+  *
   **/
 resourceNamed(name: String) : URL|null
 
    /**
-  *  
+  *
   **/
 imageNamed(name: String) : Image|null
 
   /**
-  *  
+  *
   **/
  static find(identifier: String, minimumVersion: Version|null) : PlugIn|null
 
   /**
   *   Returns the original URL from whence this `PlugIn` came, if known.
   **/
-readonly URL : URL|null 
+readonly URL : URL|null
 
     /**
-  *  
+  *
   **/
-readonly actions : Array<PlugIn.Action> 
+readonly actions : Array<PlugIn.Action>
 
     /**
   *   Returns the author for the `PlugIn`.
   **/
-readonly author : String 
+readonly author : String
 
     /**
   *   Returns the description provided for the `PlugIn`.
   **/
-readonly description : String 
+readonly description : String
 
     /**
   *   Returns the localized, human-readable name for the `PlugIn`.
   **/
-readonly displayName : String 
+readonly displayName : String
 
     /**
-  *  
+  *
   **/
-readonly handlers : Array<PlugIn.Handler> 
+readonly handlers : Array<PlugIn.Handler>
 
     /**
   *   The unique identifier of the `PlugIn`.
   **/
-readonly identifier : String 
+readonly identifier : String
 
     /**
-  *  
+  *
   **/
-readonly libraries : Array<PlugIn.Library> 
+readonly libraries : Array<PlugIn.Library>
 
     /**
   *   Returns the current `Version` for the `PlugIn`.
   **/
-readonly version : Version 
+readonly version : Version
 
   /**
-  *  
+  *
   **/
- static readonly all : Array<PlugIn> 
+ static readonly all : Array<PlugIn>
 
 }
 declare namespace PlugIn {
           class Action {
   constructor(perform: Function)
-  
-  
+
+
   /**
-  *  
+  *
   **/
-readonly description : String 
+readonly description : String
 
     /**
   *   Returns the default label to use for interface controls that invoke the action.
   **/
-readonly label : String 
+readonly label : String
 
     /**
   *   Returns the label to use for interface controls that invoke the action, when a long amount of space is available.
   **/
-readonly longLabel : String 
+readonly longLabel : String
 
     /**
   *   Returns the label to use for interface controls that invoke the action, when a medium amount of space is available.
   **/
-readonly mediumLabel : String 
+readonly mediumLabel : String
 
     /**
   *   Returns the name of the `PlugIn.Action`.
   **/
-readonly name : String 
+readonly name : String
 
     /**
   *   Returns the label to use for interface controls that show a prototype of the action control, such as on a macOS toolbar configuration sheet.
   **/
-readonly paletteLabel : String 
+readonly paletteLabel : String
 
     /**
-  *  
+  *
   **/
-readonly perform : Function 
+readonly perform : Function
 
     /**
   *   Returns the `PlugIn` that contains this object.
   **/
-readonly plugIn : PlugIn 
+readonly plugIn : PlugIn
 
     /**
   *   Returns the label to use for interface controls that invoke the action, when a short amount of space is available.
   **/
-readonly shortLabel : String 
+readonly shortLabel : String
 
     /**
   *   A function to check whether the action is supported, given the current application state, as determined by the arguments passed (typically including the selection). This optional Function may be configured while the `Action` is being loaded, but after that the `Action` will be frozen.
   **/
 validate : Function|null
 
-  
+
 }
 
       }declare namespace PlugIn {
           class Handler {
   constructor(invoke: Function)
-  
-  
+
+
   /**
   *   The `Function` that will be executed for each handler registered for an event posted by an application object.
   **/
-readonly invoke : Function 
+readonly invoke : Function
 
     /**
   *   Returns the name of the `PlugIn.Handler`.
   **/
-readonly name : String 
+readonly name : String
 
     /**
   *   Returns the `PlugIn` that contains this object.
   **/
-readonly plugIn : PlugIn 
+readonly plugIn : PlugIn
 
     /**
   *   An optional `Function` that can be set on `PlugIn.Handler` as it is being loaded (but not after). This function is passed the application object that post events to trigger the handler. The return value should be a state object that is JSON archivable (or `undefined` if the handler has no state to maintain across invocations).
@@ -2464,30 +2464,30 @@ willAttach : Function|null
   **/
 willDetach : Function|null
 
-  
+
 }
 
       }declare namespace PlugIn {
           class Library {
   constructor(version: Version)
-  
-  
+
+
   /**
   *   Returns the name of the `PlugIn.Library`.
   **/
-readonly name : String 
+readonly name : String
 
     /**
   *   Returns the `PlugIn` that contains this object.
   **/
-readonly plugIn : PlugIn 
+readonly plugIn : PlugIn
 
     /**
   *   Returns the `Version` of this library, as passed to the constructor.
   **/
-readonly version : Version 
+readonly version : Version
 
-  
+
 }
 
       } declare class Preferences {
@@ -2532,13 +2532,13 @@ write(key: String, value: Boolean|String|Number|Date|Data|null)
   **/
 remove(key: String)
 
-  
+
   /**
   *   The scoping identifier the instance given when created, or the plug-in identifier if none was given.
   **/
-readonly identifier : String 
+readonly identifier : String
 
-  
+
 }
  declare class Project {
   constructor(name: String, position: Folder|Folder.ChildInsertionLocation|null)
@@ -2625,7 +2625,7 @@ removeLinkedFileWithURL(url: URL)
   /**
   *   Returns a location referring to the position just after this project within its containing `Folder` or `Database`.
   **/
-readonly after : Folder.ChildInsertionLocation 
+readonly after : Folder.ChildInsertionLocation
 
     /**
   *   An array of `FileWrapper` objects representing the attachments associated with the `Project`'s root `Task`.
@@ -2635,22 +2635,22 @@ attachments : Array<FileWrapper>
     /**
   *   Returns a location referring to the position just before this project within its containing `Folder` or `Database`.
   **/
-readonly before : Folder.ChildInsertionLocation 
+readonly before : Folder.ChildInsertionLocation
 
     /**
   *   Returns a location referring to the position after the last `Task` directly contained in the root `task` of this project.
   **/
-readonly beginning : Task.ChildInsertionLocation 
+readonly beginning : Task.ChildInsertionLocation
 
     /**
   *   An alias for `tasks`.
   **/
-readonly children : TaskArray 
+readonly children : TaskArray
 
     /**
   *   True if the project has been marked completed. Note that a project may be effectively considered completed if a containing project is marked completed.
   **/
-readonly completed : Boolean 
+readonly completed : Boolean
 
     /**
   *   If set, the project will be automatically marked completed when its last child Task is marked completed.
@@ -2690,32 +2690,32 @@ dueDate : Date|null
     /**
   *   Returns the computed effective completion date for the `Project`, based on its local `completionDate` and those of its containers.
   **/
-readonly effectiveCompletedDate : Date|null 
+readonly effectiveCompletedDate : Date|null
 
     /**
   *   Returns the computed effective defer date for the `Project`, based on its local `deferDate` and those of its containers.
   **/
-readonly effectiveDeferDate : Date|null 
+readonly effectiveDeferDate : Date|null
 
     /**
   *   Returns the computed effective drop date for the `Project`, based on its local `dropDate` and those of its containers.
   **/
-readonly effectiveDropDate : Date|null 
+readonly effectiveDropDate : Date|null
 
     /**
   *   Returns the computed effective due date for the `Project`, based on its local `dateDue` and those of its containers.
   **/
-readonly effectiveDueDate : Date|null 
+readonly effectiveDueDate : Date|null
 
     /**
   *   Returns the computed effective flagged status for the `Project`, based on its local `flagged` and those of its containers.
   **/
-readonly effectiveFlagged : Boolean 
+readonly effectiveFlagged : Boolean
 
     /**
   *   Returns a location referring to the position before the first `Task` directly contained in the root `task` of this project.
   **/
-readonly ending : Task.ChildInsertionLocation 
+readonly ending : Task.ChildInsertionLocation
 
     /**
   *   The estimated number of minutes this `Project` will take to finish, or `null` if no estimate has been made.
@@ -2730,17 +2730,17 @@ flagged : Boolean
     /**
   *   An alias for `flattenedTasks`.
   **/
-readonly flattenedChildren : TaskArray 
+readonly flattenedChildren : TaskArray
 
     /**
   *   Returns a flat array of all tasks contained within this `Project`'s root `Task`. Tasks are sorted by their order in the database.
   **/
-readonly flattenedTasks : TaskArray 
+readonly flattenedTasks : TaskArray
 
     /**
   *   Returns `true` if this `Project`'s root `Task` has children, more efficiently than checking if `children` is empty.
   **/
-readonly hasChildren : Boolean 
+readonly hasChildren : Boolean
 
     /**
   *   The date on which the last review was performed. See also `nextReviewDate`.
@@ -2750,7 +2750,7 @@ lastReviewDate : Date|null
     /**
   *   The list of file URLs linked to this project's root task. The files at these URLs are not present in the database, rather the database holds bookmarks leading to these files. These links can be read on iOS, but not written to.
   **/
-readonly linkedFileURLs : Array<URL> 
+readonly linkedFileURLs : Array<URL>
 
     /**
   *   The name of the `Project`s root task.
@@ -2765,7 +2765,7 @@ nextReviewDate : Date|null
     /**
   *   Returns the very next task that can be completed in the project, or `null` if there is none or the project contains singleton actions.
   **/
-readonly nextTask : Task|null 
+readonly nextTask : Task|null
 
     /**
   *   The `Project`'s root `Task`'s note.
@@ -2775,12 +2775,12 @@ note : String
     /**
   *   An array of the notifications that are active for this project.
   **/
-readonly notifications : Array<Task.Notification> 
+readonly notifications : Array<Task.Notification>
 
     /**
   *   The `Folder` which contains this project.
   **/
-readonly parentFolder : Folder|null 
+readonly parentFolder : Folder|null
 
     /**
   *   The object holding the repetition properties for this project, or null if it is not repeating.
@@ -2810,30 +2810,30 @@ status : Project.Status
     /**
   *   Returns the `Tag`s associated with this `Project`.
   **/
-readonly tags : TagArray 
+readonly tags : TagArray
 
     /**
   *   Returns the root task of the project, which holds the bulk of the project information, as well as being the container for tasks within the project. If you wish to copy the project or move it to a location that requires tasks, you would use this task as the object to be copied or moved.
   **/
-readonly task : Task 
+readonly task : Task
 
     /**
   *   Returns the current status of the project.
   **/
-readonly taskStatus : Task.Status 
+readonly taskStatus : Task.Status
 
     /**
   *   Returns all the tasks contained directly in this `Project`'s root `Task`, sorted by their library order.
   **/
-readonly tasks : TaskArray 
+readonly tasks : TaskArray
 
-  
+
 }
 declare namespace Project {
           class ReviewInterval {
-  
-  
-  
+
+
+
   /**
   *   The count of `units` to use for this interval (e.g. "14" days or "12" months).
   **/
@@ -2844,164 +2844,164 @@ steps : Number
   **/
 unit : String
 
-  
+
 }
 
       }declare namespace Project {
           class Status {
-  
-  
-  
-  
+
+
+
+
   /**
   *   The project is active.
   **/
- static readonly Active : Project.Status 
+ static readonly Active : Project.Status
 
     /**
   *   The project has been marked as completed.
   **/
- static readonly Done : Project.Status 
+ static readonly Done : Project.Status
 
     /**
   *   The project has been dropped.
   **/
- static readonly Dropped : Project.Status 
+ static readonly Dropped : Project.Status
 
     /**
   *   The project has been put on-hold.
   **/
- static readonly OnHold : Project.Status 
+ static readonly OnHold : Project.Status
 
     /**
   *   An array of all items of this enumeration.
   **/
- static readonly all : Array<Project.Status> 
+ static readonly all : Array<Project.Status>
 
 }
 
       } declare class ProjectArray {
-  
+
   /**
   *   Returns the first `Project` contained directly in this array with the given name.
   **/
 byName(name: String) : Project|null
 
-  
-  
-  
+
+
+
 }
  declare class SectionArray {
-  
+
   /**
   *   Returns the first `Project` or `Folder` contained directly in this array with the given name.
   **/
 byName(name: String) : Project|Folder|null
 
-  
-  
-  
+
+
+
 }
  declare class Selection {
-  
-  
-  
+
+
+
   /**
   *   Returns all the objects in the selection.
   **/
-readonly allObjects : Array<Object> 
+readonly allObjects : Array<Object>
 
     /**
   *   Returns the `Database` object in the selection, if any.
   **/
-readonly database : Database|null 
+readonly database : Database|null
 
     /**
   *   Returns all the `DatabaseObject` objects in the selection, if any.
   **/
-readonly databaseObjects : Array<DatabaseObject> 
+readonly databaseObjects : Array<DatabaseObject>
 
     /**
   *   The `Document` containing the selection.
   **/
-readonly document : DatabaseDocument|null 
+readonly document : DatabaseDocument|null
 
     /**
   *   Returns all the `Folder` objects in the selection, if any.
   **/
-readonly folders : FolderArray 
+readonly folders : FolderArray
 
     /**
   *   Returns all the `Project` objects in the selection, if any.
   **/
-readonly projects : ProjectArray 
+readonly projects : ProjectArray
 
     /**
   *   Returns all the `Tag` objects in the selection, if any.
   **/
-readonly tags : TagArray 
+readonly tags : TagArray
 
     /**
   *   Returns all the `Task` objects in the selection, if any.
   **/
-readonly tasks : TaskArray 
+readonly tasks : TaskArray
 
     /**
   *   The `Window` containing the selection.
   **/
-readonly window : DocumentWindow|null 
+readonly window : DocumentWindow|null
 
-  
+
 }
  declare class Settings {
-  
+
   /**
-  *  
+  *
   **/
 defaultObjectForKey(key: String) : Object|null
 
    /**
-  *  
+  *
   **/
 hasNonDefaultObjectForKey(key: String) : Boolean
 
    /**
-  *  
+  *
   **/
 objectForKey(key: String) : Object|null
 
    /**
-  *  
+  *
   **/
 setObjectForKey(value: Object|null, key: String)
 
    /**
-  *  
+  *
   **/
 boolForKey(key: String) : Boolean
 
    /**
-  *  
+  *
   **/
 setBoolForKey(value: Boolean, key: String)
 
    /**
-  *  
+  *
   **/
 integerForKey(key: String) : Number
 
    /**
-  *  
+  *
   **/
 setIntegerForKey(value: Number, key: String)
 
-  
-  /**
-  *  
-  **/
-readonly keys : Array<String> 
 
-  
+  /**
+  *
+  **/
+readonly keys : Array<String>
+
+
 }
  declare class SharePanel {
   constructor(items: Array<URL>|String|Image|FileWrapper)
@@ -3035,23 +3035,23 @@ clearItems()
   **/
 show()
 
-  
+
   /**
   *   The items that will be supplied to the system share interaction upon calling `show`.
   **/
 items : Array<URL>|String|Image|FileWrapper
 
-  
+
 }
  declare class SidebarTree {
-  
-  
-  
-  
-  
+
+
+
+
+
 }
  declare class Style {
-  
+
   /**
   *   Sets (or clears) the value for the given style attribute.
   **/
@@ -3092,7 +3092,7 @@ setStyle(style: Style)
   **/
 clear()
 
-  
+
   /**
   *   The color used to fill text. Setting the color to `null` will remove the setting for this style.
   **/
@@ -3101,249 +3101,249 @@ fontFillColor : Color
     /**
   *   Returns the `URL` link for a style, or `null` if there is no link applied. Note that `get(Style.Attribute.Link)` on the same style will return the default `URL` with an empty `toString()` value when there is no URL applied. If the style represents a file attachment and there is no specific link attribute set, the `URL` for the file attachment will be returned. If the style represents an file attachment that is embedded in the document, `null` will be returned.
   **/
-readonly link : URL|null 
+readonly link : URL|null
 
     /**
   *   Returns an array of the `Style.Attribute`s defined on this `Style`.
   **/
-readonly locallyDefinedAttributes : Array<Style.Attribute> 
+readonly locallyDefinedAttributes : Array<Style.Attribute>
 
     /**
   *   Returns the `NamedStyle`s that are directly associated with this `Style`. If a style attribute lookup doesn't find a value in the local style, then the named styles will be searched.
   **/
-readonly namedStyles : Array<NamedStyle> 
+readonly namedStyles : Array<NamedStyle>
 
-  
+
 }
 declare namespace Style {
           class Attribute {
-  
-  
-  
+
+
+
   /**
   *   Returns the default value that will be used when a style has no local value for this attribute, nor do any of its associated styles.
   **/
-readonly defaultValue : Object 
+readonly defaultValue : Object
 
     /**
   *   Returns the string used to identify this attribute when calling `get` or `set` on a `Style` instance.
   **/
-readonly key : String 
+readonly key : String
 
   /**
-  *  
+  *
   **/
- static readonly BackgroundColor : Style.Attribute 
+ static readonly BackgroundColor : Style.Attribute
 
     /**
-  *  
+  *
   **/
- static readonly BaselineOffset : Style.Attribute 
+ static readonly BaselineOffset : Style.Attribute
 
     /**
-  *  
+  *
   **/
- static readonly BaselineSuperscript : Style.Attribute 
+ static readonly BaselineSuperscript : Style.Attribute
 
     /**
-  *  
+  *
   **/
- static readonly Expansion : Style.Attribute 
+ static readonly Expansion : Style.Attribute
 
     /**
-  *  
+  *
   **/
- static readonly FontCondensed : Style.Attribute 
+ static readonly FontCondensed : Style.Attribute
 
     /**
-  *  
+  *
   **/
- static readonly FontFamily : Style.Attribute 
+ static readonly FontFamily : Style.Attribute
 
     /**
-  *  
+  *
   **/
- static readonly FontFillColor : Style.Attribute 
+ static readonly FontFillColor : Style.Attribute
 
     /**
-  *  
+  *
   **/
- static readonly FontFixedPitch : Style.Attribute 
+ static readonly FontFixedPitch : Style.Attribute
 
     /**
-  *  
+  *
   **/
- static readonly FontItalic : Style.Attribute 
+ static readonly FontItalic : Style.Attribute
 
     /**
-  *  
+  *
   **/
- static readonly FontName : Style.Attribute 
+ static readonly FontName : Style.Attribute
 
     /**
-  *  
+  *
   **/
- static readonly FontNarrow : Style.Attribute 
+ static readonly FontNarrow : Style.Attribute
 
     /**
-  *  
+  *
   **/
- static readonly FontSize : Style.Attribute 
+ static readonly FontSize : Style.Attribute
 
     /**
-  *  
+  *
   **/
- static readonly FontStrokeColor : Style.Attribute 
+ static readonly FontStrokeColor : Style.Attribute
 
     /**
-  *  
+  *
   **/
- static readonly FontStrokeWidth : Style.Attribute 
+ static readonly FontStrokeWidth : Style.Attribute
 
     /**
-  *  
+  *
   **/
- static readonly FontWeight : Style.Attribute 
+ static readonly FontWeight : Style.Attribute
 
     /**
-  *  
+  *
   **/
- static readonly KerningAdjustment : Style.Attribute 
+ static readonly KerningAdjustment : Style.Attribute
 
     /**
-  *  
+  *
   **/
- static readonly LigatureSelection : Style.Attribute 
+ static readonly LigatureSelection : Style.Attribute
 
     /**
-  *  
+  *
   **/
- static readonly Link : Style.Attribute 
+ static readonly Link : Style.Attribute
 
     /**
-  *  
+  *
   **/
- static readonly Obliqueness : Style.Attribute 
+ static readonly Obliqueness : Style.Attribute
 
     /**
-  *  
+  *
   **/
- static readonly ParagraphAlignment : Style.Attribute 
+ static readonly ParagraphAlignment : Style.Attribute
 
     /**
-  *  
+  *
   **/
- static readonly ParagraphBaseWritingDirection : Style.Attribute 
+ static readonly ParagraphBaseWritingDirection : Style.Attribute
 
     /**
-  *  
+  *
   **/
- static readonly ParagraphDefaultTabInterval : Style.Attribute 
+ static readonly ParagraphDefaultTabInterval : Style.Attribute
 
     /**
-  *  
+  *
   **/
- static readonly ParagraphFirstLineHeadIndent : Style.Attribute 
+ static readonly ParagraphFirstLineHeadIndent : Style.Attribute
 
     /**
-  *  
+  *
   **/
- static readonly ParagraphHeadIndent : Style.Attribute 
+ static readonly ParagraphHeadIndent : Style.Attribute
 
     /**
-  *  
+  *
   **/
- static readonly ParagraphLineHeightMultiple : Style.Attribute 
+ static readonly ParagraphLineHeightMultiple : Style.Attribute
 
     /**
-  *  
+  *
   **/
- static readonly ParagraphLineSpacing : Style.Attribute 
+ static readonly ParagraphLineSpacing : Style.Attribute
 
     /**
-  *  
+  *
   **/
- static readonly ParagraphMaximumLineHeight : Style.Attribute 
+ static readonly ParagraphMaximumLineHeight : Style.Attribute
 
     /**
-  *  
+  *
   **/
- static readonly ParagraphMinimumLineHeight : Style.Attribute 
+ static readonly ParagraphMinimumLineHeight : Style.Attribute
 
     /**
-  *  
+  *
   **/
- static readonly ParagraphSpacing : Style.Attribute 
+ static readonly ParagraphSpacing : Style.Attribute
 
     /**
-  *  
+  *
   **/
- static readonly ParagraphSpacingBefore : Style.Attribute 
+ static readonly ParagraphSpacingBefore : Style.Attribute
 
     /**
-  *  
+  *
   **/
- static readonly ParagraphTabStops : Style.Attribute 
+ static readonly ParagraphTabStops : Style.Attribute
 
     /**
-  *  
+  *
   **/
- static readonly ParagraphTailIndent : Style.Attribute 
+ static readonly ParagraphTailIndent : Style.Attribute
 
     /**
-  *  
+  *
   **/
- static readonly ShadowBlurRadius : Style.Attribute 
+ static readonly ShadowBlurRadius : Style.Attribute
 
     /**
-  *  
+  *
   **/
- static readonly ShadowColor : Style.Attribute 
+ static readonly ShadowColor : Style.Attribute
 
     /**
-  *  
+  *
   **/
- static readonly ShadowOffset : Style.Attribute 
+ static readonly ShadowOffset : Style.Attribute
 
     /**
-  *  
+  *
   **/
- static readonly StrikethroughAffinity : Style.Attribute 
+ static readonly StrikethroughAffinity : Style.Attribute
 
     /**
-  *  
+  *
   **/
- static readonly StrikethroughColor : Style.Attribute 
+ static readonly StrikethroughColor : Style.Attribute
 
     /**
-  *  
+  *
   **/
- static readonly StrikethroughPattern : Style.Attribute 
+ static readonly StrikethroughPattern : Style.Attribute
 
     /**
-  *  
+  *
   **/
- static readonly StrikethroughStyle : Style.Attribute 
+ static readonly StrikethroughStyle : Style.Attribute
 
     /**
-  *  
+  *
   **/
- static readonly UnderlineAffinity : Style.Attribute 
+ static readonly UnderlineAffinity : Style.Attribute
 
     /**
-  *  
+  *
   **/
- static readonly UnderlineColor : Style.Attribute 
+ static readonly UnderlineColor : Style.Attribute
 
     /**
-  *  
+  *
   **/
- static readonly UnderlinePattern : Style.Attribute 
+ static readonly UnderlinePattern : Style.Attribute
 
     /**
-  *  
+  *
   **/
- static readonly UnderlineStyle : Style.Attribute 
+ static readonly UnderlineStyle : Style.Attribute
 
 }
 
@@ -3372,7 +3372,7 @@ apply(fn: Function) : ApplyResult|null
   /**
   *   Returns a location referring to the position just after this tag.
   **/
-readonly after : Tag.ChildInsertionLocation 
+readonly after : Tag.ChildInsertionLocation
 
     /**
   *   If set and the tag is active, tasks with this tag applied cannot be the next task of a project.
@@ -3382,57 +3382,57 @@ allowsNextAction : Boolean
     /**
   *   Returns a sorted list of the tasks associated with this tag that are currently available. Recent changes may not be reflected until a `cleanUp` is performed on the database.
   **/
-readonly availableTasks : TaskArray 
+readonly availableTasks : TaskArray
 
     /**
   *   Returns a location referring to the position just before this tag.
   **/
-readonly before : Tag.ChildInsertionLocation 
+readonly before : Tag.ChildInsertionLocation
 
     /**
   *   Returns a location referring to the beginning of the contained tags in this tag.
   **/
-readonly beginning : Tag.ChildInsertionLocation 
+readonly beginning : Tag.ChildInsertionLocation
 
     /**
   *   An alias for `tags`.
   **/
-readonly children : TagArray 
+readonly children : TagArray
 
     /**
   *   Returns a location referring to the ending of the contained tags in this tag.
   **/
-readonly ending : Tag.ChildInsertionLocation 
+readonly ending : Tag.ChildInsertionLocation
 
     /**
   *   An alias for `flattenedTags`.
   **/
-readonly flattenedChildren : TagArray 
+readonly flattenedChildren : TagArray
 
     /**
   *   Returns a flat array of all tags contained within this tag. Tags are sorted by their order in the database.
   **/
-readonly flattenedTags : TagArray 
+readonly flattenedTags : TagArray
 
     /**
-  *  
+  *
   **/
 name : String
 
     /**
   *   The parent `Tag` which contains this tag.
   **/
-readonly parent : Tag|null 
+readonly parent : Tag|null
 
     /**
   *   A convenience property that returns only `Project`s for the root tasks associated with this `Tag`.
   **/
-readonly projects : ProjectArray 
+readonly projects : ProjectArray
 
     /**
   *   Returns a sorted list of the tasks associated with this tag that remaing to be completed. Recent changes may not be reflected until a `cleanUp` is performed on the database.
   **/
-readonly remainingTasks : TaskArray 
+readonly remainingTasks : TaskArray
 
     /**
   *   The current status of the tag as a whole, which is derived from `allowsNextAction` and `active`.
@@ -3442,86 +3442,86 @@ status : Tag.Status
     /**
   *   Returns a sorted list of the tags contained directly within this tag, sorted by their library order.
   **/
-readonly tags : TagArray 
+readonly tags : TagArray
 
     /**
   *   Returns a sorted list of the tasks associated with this tag.
   **/
-readonly tasks : TaskArray 
+readonly tasks : TaskArray
 
   /**
   *   The Forecast Tag, if it is set.
   **/
- static readonly forecastTag : Tag|null 
+ static readonly forecastTag : Tag|null
 
 }
 declare namespace Tag {
           class ChildInsertionLocation {
-  
-  
-  
-  
-  
+
+
+
+
+
 }
 
       }declare namespace Tag {
           class Status {
-  
-  
-  
-  
+
+
+
+
   /**
   *   The tag is active.
   **/
- static readonly Active : Tag.Status 
+ static readonly Active : Tag.Status
 
     /**
   *   The tag has been dropped.
   **/
- static readonly Dropped : Tag.Status 
+ static readonly Dropped : Tag.Status
 
     /**
   *   The tag has been put on-hold.
   **/
- static readonly OnHold : Tag.Status 
+ static readonly OnHold : Tag.Status
 
     /**
   *   An array of all items of this enumeration.
   **/
- static readonly all : Array<Tag.Status> 
+ static readonly all : Array<Tag.Status>
 
 }
 
       } declare class TagArray {
-  
+
   /**
   *   Returns the first `Tag` contained directly in this array with the given name.
   **/
 byName(name: String) : Tag|null
 
-  
-  
-  
+
+
+
 }
  declare class Tags {
-  
+
   /**
   *   Calls the given function for each `Tag` in the `Library` and recursively into any child tags.
   **/
 apply(fn: Function) : ApplyResult|null
 
-  
+
   /**
   *   Returns a location referring to the beginning of the top-level tags in the database.
   **/
-readonly beginning : Tag.ChildInsertionLocation 
+readonly beginning : Tag.ChildInsertionLocation
 
     /**
   *   Returns a location referring to the ending of the top-level tags in the database.
   **/
-readonly ending : Tag.ChildInsertionLocation 
+readonly ending : Tag.ChildInsertionLocation
 
-  
+
 }
  declare class Task {
   constructor(name: String, position: Project|Task|Task.ChildInsertionLocation|null)
@@ -3628,7 +3628,7 @@ removeNotification(notification: Task.Notification)
   /**
   *   The location after this task within its parent task's children. If this task has no parent task, then this is the position adjacent to it in its container.
   **/
-readonly after : Task.ChildInsertionLocation 
+readonly after : Task.ChildInsertionLocation
 
     /**
   *   For tasks in the inbox, the tentatively assigned project or parent task, which will be applied on cleanup.
@@ -3643,22 +3643,22 @@ attachments : Array<FileWrapper>
     /**
   *   The location before this task within its parent task's children. If this task has no parent task, then this is the position adjacent to it in its container.
   **/
-readonly before : Task.ChildInsertionLocation 
+readonly before : Task.ChildInsertionLocation
 
     /**
   *   The location at the beginning of this task's children.
   **/
-readonly beginning : Task.ChildInsertionLocation 
+readonly beginning : Task.ChildInsertionLocation
 
     /**
   *   An alias for `tasks`.
   **/
-readonly children : TaskArray 
+readonly children : TaskArray
 
     /**
   *   True if the task has been marked completed. Note that a task may be effectively considered completed if a containing task is marked completed.
   **/
-readonly completed : Boolean 
+readonly completed : Boolean
 
     /**
   *   If set, the Task will be automatically marked completed when its last child Task is marked completed.
@@ -3668,12 +3668,12 @@ completedByChildren : Boolean
     /**
   *   If set, the Task is completed.
   **/
-readonly completionDate : Date|null 
+readonly completionDate : Date|null
 
     /**
   *   The `Project` that this `Task` is contained in, either as the root of the project or indirectly from a parent task. If this task is in the inbox, then this will be `null`.
   **/
-readonly containingProject : Project|null 
+readonly containingProject : Project|null
 
     /**
   *   If set, the Task is not actionable until this date.
@@ -3683,7 +3683,7 @@ deferDate : Date|null
     /**
   *   If set, the Task is dropped.
   **/
-readonly dropDate : Date|null 
+readonly dropDate : Date|null
 
     /**
   *   If set, the Task should be completed by this date.
@@ -3693,32 +3693,32 @@ dueDate : Date|null
     /**
   *   Returns the computed effective completion date for the `Task`, based on its local `completionDate` and those of its containers.
   **/
-readonly effectiveCompletedDate : Date|null 
+readonly effectiveCompletedDate : Date|null
 
     /**
   *   Returns the computed effective defer date for the `Task`, based on its local `deferDate` and those of its containers.
   **/
-readonly effectiveDeferDate : Date|null 
+readonly effectiveDeferDate : Date|null
 
     /**
   *   Returns the computed effective drop date for the `Task`, based on its local `dropDate` and those of its containers.
   **/
-readonly effectiveDropDate : Date|null 
+readonly effectiveDropDate : Date|null
 
     /**
   *   Returns the computed effective due date for the `Task`, based on its local `dateDue` and those of its containers.
   **/
-readonly effectiveDueDate : Date|null 
+readonly effectiveDueDate : Date|null
 
     /**
   *   Returns the computed effective flagged status for the `Task`, based on its local `flagged` and those of its containers.
   **/
-readonly effectiveFlagged : Boolean 
+readonly effectiveFlagged : Boolean
 
     /**
   *   The location at the end of this task's children.
   **/
-readonly ending : Task.ChildInsertionLocation 
+readonly ending : Task.ChildInsertionLocation
 
     /**
   *   The estimated number of minutes this task will take to finish, or `null` if no estimate has been made.
@@ -3733,27 +3733,27 @@ flagged : Boolean
     /**
   *   An alias for `flattenedTasks`.
   **/
-readonly flattenedChildren : TaskArray 
+readonly flattenedChildren : TaskArray
 
     /**
   *   Returns a flat array of all tasks contained within this task. Tasks are sorted by their order in the database.
   **/
-readonly flattenedTasks : TaskArray 
+readonly flattenedTasks : TaskArray
 
     /**
   *   Returns `true` if this task has children, more efficiently than checking if `children` is empty.
   **/
-readonly hasChildren : Boolean 
+readonly hasChildren : Boolean
 
     /**
   *   True if the task is a direct child of the inbox, but not if the task is contained by another task that is in the inbox.
   **/
-readonly inInbox : Boolean 
+readonly inInbox : Boolean
 
     /**
   *   The list of file URLs linked to this task. The files at these URLs are not present in the database, rather the database holds bookmarks leading to these files. These links can be read on iOS, but not written to.
   **/
-readonly linkedFileURLs : Array<URL> 
+readonly linkedFileURLs : Array<URL>
 
     /**
   *   The title of the task.
@@ -3768,17 +3768,17 @@ note : String
     /**
   *   An array of the notifications that are active for this task.
   **/
-readonly notifications : Array<Task.Notification> 
+readonly notifications : Array<Task.Notification>
 
     /**
   *   The parent `Task` which contains this task.
   **/
-readonly parent : Task|null 
+readonly parent : Task|null
 
     /**
   *   The `Project` that this `Task` is the root task of, or `null` if this task is in the inbox or contained by another task.
   **/
-readonly project : Project|null 
+readonly project : Project|null
 
     /**
   *   The object holding the repetition properties for this task, or null if it is not repeating.
@@ -3798,25 +3798,25 @@ shouldUseFloatingTimeZone : Boolean
     /**
   *   Returns the `Tag`s associated with this `Task`.
   **/
-readonly tags : TagArray 
+readonly tags : TagArray
 
     /**
   *   Returns the current status of the task.
   **/
-readonly taskStatus : Task.Status 
+readonly taskStatus : Task.Status
 
     /**
   *   Returns all the tasks contained directly in this task, sorted by their library order.
   **/
-readonly tasks : TaskArray 
+readonly tasks : TaskArray
 
-  
+
 }
 declare namespace Task {
           class Notification {
-  
-  
-  
+
+
+
   /**
   *   The absolute date at which this notification will fire, if its `kind` is `absolute`. Getting or setting this property throws an error if this notification's `kind` is not `absolute`.
   **/
@@ -3825,22 +3825,22 @@ absoluteFireDate : Date
     /**
   *   The time at which this notification will fire. For due or defer-relative notifications, this date will change with its `task` object's due and defer dates.
   **/
-readonly initialFireDate : Date 
+readonly initialFireDate : Date
 
     /**
   *   Whether or not this notification has been snoozed.
   **/
-readonly isSnoozed : Boolean 
+readonly isSnoozed : Boolean
 
     /**
   *   This notification's kind. A `kind` of `unknown` indicates that the notification is in an invalid state.
   **/
-readonly kind : Task.Notification.Kind 
+readonly kind : Task.Notification.Kind
 
     /**
   *   The next time at which this notification will fire. This will only have a value if the `initialFireDate` is not yet reached, or this notification's `repeatInterval` is greater than 0.
   **/
-readonly nextFireDate : Date|null 
+readonly nextFireDate : Date|null
 
     /**
   *   The relative offset in minutes at which this notification will fire from the specified date on its `task`. Getting or setting this property throws an error if this notification's `kind` is not either `dueRelative` or `deferRelative`.
@@ -3855,83 +3855,83 @@ repeatInterval : Number
     /**
   *   The `Task` object this notification will fire for.
   **/
-readonly task : Task|null 
+readonly task : Task|null
 
     /**
   *   Whether or not the notification's fire date uses floating time zones. This can only return true if the notification's `kind` is absolute`. This can be changed by setting `shouldUseFloatingTimeZone` on this notification's `task`
   **/
-readonly usesFloatingTimeZone : Boolean 
+readonly usesFloatingTimeZone : Boolean
 
-  
+
 }
  namespace Notification {
           class Kind {
-  
-  
-  
-  
+
+
+
+
   /**
   *   This notification fires on a given date, regardless of its task's due and defer dates.
   **/
- static readonly Absolute : Task.Notification.Kind 
+ static readonly Absolute : Task.Notification.Kind
 
     /**
   *   This notification fires at a time relative to its task's due date.
   **/
- static readonly DueRelative : Task.Notification.Kind 
+ static readonly DueRelative : Task.Notification.Kind
 
     /**
   *   It is not known what this notification's fire date is relative to.
   **/
- static readonly Unknown : Task.Notification.Kind 
+ static readonly Unknown : Task.Notification.Kind
 
     /**
   *   An array of all items of this enumeration.
   **/
- static readonly all : Array<Task.Notification.Kind> 
+ static readonly all : Array<Task.Notification.Kind>
 
 }
 
       }
       }declare namespace Task {
           class ChildInsertionLocation {
-  
-  
-  
-  
-  
+
+
+
+
+
 }
 
       }declare namespace Task {
           class RepetitionMethod {
-  
-  
-  
-  
+
+
+
+
   /**
-  *  
+  *
   **/
- static readonly DeferUntilDate : Task.RepetitionMethod 
+ static readonly DeferUntilDate : Task.RepetitionMethod
 
     /**
-  *  
+  *
   **/
- static readonly DueDate : Task.RepetitionMethod 
+ static readonly DueDate : Task.RepetitionMethod
 
     /**
-  *  
+  *
   **/
- static readonly Fixed : Task.RepetitionMethod 
+ static readonly Fixed : Task.RepetitionMethod
 
     /**
   *   The task does not repeat.
   **/
- static readonly None : Task.RepetitionMethod 
+ static readonly None : Task.RepetitionMethod
 
     /**
   *   An array of all items of this enumeration.
   **/
- static readonly all : Array<Task.RepetitionMethod> 
+ static readonly all : Array<Task.RepetitionMethod>
 
 }
 
@@ -3943,78 +3943,78 @@ readonly usesFloatingTimeZone : Boolean
   **/
 firstDateAfterDate(date: Date) : Date
 
-  
+
   /**
   *   The method used to create the repetition rule.
   **/
-readonly method : Task.RepetitionMethod 
+readonly method : Task.RepetitionMethod
 
     /**
   *   The ICS rule string used to create the repetition rule.
   **/
-readonly ruleString : String 
+readonly ruleString : String
 
-  
+
 }
 
       }declare namespace Task {
           class Status {
-  
-  
-  
-  
+
+
+
+
   /**
   *   The task is available to work on.
   **/
- static readonly Available : Task.Status 
+ static readonly Available : Task.Status
 
     /**
   *   The task is not available to work on currently, due to a future defer date, a preceeding task in a sequential project, or having an on-hold tag associated.
   **/
- static readonly Blocked : Task.Status 
+ static readonly Blocked : Task.Status
 
     /**
   *   The task is already completed.
   **/
- static readonly Completed : Task.Status 
+ static readonly Completed : Task.Status
 
     /**
   *   The task will not be worked on.
   **/
- static readonly Dropped : Task.Status 
+ static readonly Dropped : Task.Status
 
     /**
   *   The task is incomplete and due soon.
   **/
- static readonly DueSoon : Task.Status 
+ static readonly DueSoon : Task.Status
 
     /**
   *   The task is the first available task in a project.
   **/
- static readonly Next : Task.Status 
+ static readonly Next : Task.Status
 
     /**
   *   The task is incomplete overdue.
   **/
- static readonly Overdue : Task.Status 
+ static readonly Overdue : Task.Status
 
     /**
   *   An array of all items of this enumeration.
   **/
- static readonly all : Array<Task.Status> 
+ static readonly all : Array<Task.Status>
 
 }
 
-      } declare class TaskArray {
-  
+      } declare class TaskArray extends Array<Task> {
+
   /**
   *   Returns the first `Task` contained directly in this array with the given name.
   **/
 byName(name: String) : Task|null
 
-  
-  
-  
+
+
+
 }
  declare class Text {
   constructor(string: String, style: Style)
@@ -4066,47 +4066,47 @@ find(string: String, options: Array<Text.FindOption>|null, range: Text.Range|nul
   /**
   *   Returns an array of copies of the blocks of `Text` in the receiver that represent `Attachment`s. Note that editing these instances will not change the original.
   **/
-readonly attachments : Array<Text> 
+readonly attachments : Array<Text>
 
     /**
   *   Returns an array of copies of the contiguous blocks of `Text` in the receiver that have the same style. Note that editing these instances will not change the original.
   **/
-readonly attributeRuns : Array<Text> 
+readonly attributeRuns : Array<Text>
 
     /**
   *   Returns an array of copies of the characters in the `Text`. Note that editing these instances will not change the original.
   **/
-readonly characters : Array<Text> 
+readonly characters : Array<Text>
 
     /**
   *   Returns a `Text.Position` indicating the end of the `Text`.
   **/
-readonly end : Text.Position 
+readonly end : Text.Position
 
     /**
   *   Returns the attached file wrapper for the `Text` (or rather, the first character of the text), if any.
   **/
-readonly fileWrapper : FileWrapper|null 
+readonly fileWrapper : FileWrapper|null
 
     /**
   *   Returns an array of copies of the paragraphs in the `Text`. Note that editing these instances will not change the original. Paragraphs, if ended by a newline, will contain the newline character.
   **/
-readonly paragraphs : Array<Text> 
+readonly paragraphs : Array<Text>
 
     /**
   *   Returns a `Text.Range` that spans the entire `Text`.
   **/
-readonly range : Text.Range 
+readonly range : Text.Range
 
     /**
   *   Returns an array of copies of the sentences in the `Text`. Note that editing these instances will not change the original.
   **/
-readonly sentences : Array<Text> 
+readonly sentences : Array<Text>
 
     /**
   *   Returns a `Text.Position` indicating the beginning of the `Text`.
   **/
-readonly start : Text.Position 
+readonly start : Text.Position
 
     /**
   *   Returns a plain `String` version of the characters in the `Text`. Note that since JavaScript represents Strings as Unicode code points, the length of the returned string may be differnt from the number of `characters` in the `Text` object.
@@ -4116,211 +4116,211 @@ string : String
     /**
   *   Returns a `Style` instance for this `Text` object.
   **/
-readonly style : Style 
+readonly style : Style
 
     /**
   *   Returns an array of copies of the words in the `Text`. Note that editing these instances will not change the original.
   **/
-readonly words : Array<Text> 
+readonly words : Array<Text>
 
-  
+
 }
 declare namespace Text {
           class FindOption {
-  
-  
-  
-  
+
+
+
+
   /**
   *   Matches must be anchored to the beginning (or end if Backwards is include) of the string or search range.
   **/
- static readonly Anchored : Text.FindOption 
+ static readonly Anchored : Text.FindOption
 
     /**
   *   Search starting from the end of the string or range.
   **/
- static readonly Backwards : Text.FindOption 
+ static readonly Backwards : Text.FindOption
 
     /**
   *   Compare upper and lower case characters as equal.
   **/
- static readonly CaseInsensitive : Text.FindOption 
+ static readonly CaseInsensitive : Text.FindOption
 
     /**
   *   Ignore diacritics. For example, "ö" is considered the same as "o".
   **/
- static readonly DiacriticInsensitive : Text.FindOption 
+ static readonly DiacriticInsensitive : Text.FindOption
 
     /**
   *   Force an ordering between strings that aren't strictly equal.
   **/
- static readonly ForcedOrdering : Text.FindOption 
+ static readonly ForcedOrdering : Text.FindOption
 
     /**
   *   Perform exact character-by-character matching.
   **/
- static readonly Literal : Text.FindOption 
+ static readonly Literal : Text.FindOption
 
     /**
   *   Order numbers by numeric value, not lexigraphically. Only applies to ordered comparisons, not find operations.
   **/
- static readonly Numeric : Text.FindOption 
+ static readonly Numeric : Text.FindOption
 
     /**
   *   For find operations, the string is treated as an ICU-compatible regular expression. If set, no other options can be used except for `CaseInsensitive` and `Anchored`.
   **/
- static readonly RegularExpression : Text.FindOption 
+ static readonly RegularExpression : Text.FindOption
 
     /**
   *   Ignore width differences. For example, "a" is considered the same as 'FULLWIDTH LATIN SMALL LETTER A' (U+FF41).
   **/
- static readonly WidthInsensitive : Text.FindOption 
+ static readonly WidthInsensitive : Text.FindOption
 
     /**
   *   An array of all items of this enumeration.
   **/
- static readonly all : Array<Text.FindOption> 
+ static readonly all : Array<Text.FindOption>
 
 }
 
       }declare namespace Text {
           class Position {
-  
-  
-  
-  
-  
+
+
+
+
+
 }
 
       }declare namespace Text {
           class Range {
   constructor(start: Text.Position, end: Text.Position)
-  
-  
+
+
   /**
   *   Returns the `Text.Position` for the end of the `Text.Range`
   **/
-readonly end : Text.Position 
+readonly end : Text.Position
 
     /**
   *   Returns `true` if the `Text.Range` contains no characters.
   **/
-readonly isEmpty : Boolean 
+readonly isEmpty : Boolean
 
     /**
   *   Returns the `Text.Position` for the beginning of the `Text.Range`
   **/
-readonly start : Text.Position 
+readonly start : Text.Position
 
-  
+
 }
 
       } declare class TextAlignment {
-  
-  
-  
-  
+
+
+
+
   /**
   *   Visually center aligned.
   **/
- static readonly Center : TextAlignment 
+ static readonly Center : TextAlignment
 
     /**
   *   Fully-justified.
   **/
- static readonly Justified : TextAlignment 
+ static readonly Justified : TextAlignment
 
     /**
   *   Visually left aligned.
   **/
- static readonly Left : TextAlignment 
+ static readonly Left : TextAlignment
 
     /**
   *   Use the default alignment based on the characters in the text.
   **/
- static readonly Natural : TextAlignment 
+ static readonly Natural : TextAlignment
 
     /**
   *   Visually right aligned.
   **/
- static readonly Right : TextAlignment 
+ static readonly Right : TextAlignment
 
     /**
   *   An array of all items of this enumeration.
   **/
- static readonly all : Array<TextAlignment> 
+ static readonly all : Array<TextAlignment>
 
 }
  declare class TextComponent {
-  
-  
-  
-  
+
+
+
+
   /**
   *   The ranges of Text which represent Attachments.
   **/
- static readonly Attachments : TextComponent 
+ static readonly Attachments : TextComponent
 
     /**
   *   The ranges of Text which have the same attributes.
   **/
- static readonly AttributeRuns : TextComponent 
+ static readonly AttributeRuns : TextComponent
 
     /**
   *   The individual characters of the Text. Note that some characters (like emoji) consist of multiple Unicode code points.
   **/
- static readonly Characters : TextComponent 
+ static readonly Characters : TextComponent
 
     /**
   *   The paragraphs of Text. Unlike other options, the line breaking characters that end the paragraph are included.
   **/
- static readonly Paragraphs : TextComponent 
+ static readonly Paragraphs : TextComponent
 
     /**
   *   The sentences of the Text.
   **/
- static readonly Sentences : TextComponent 
+ static readonly Sentences : TextComponent
 
     /**
   *   The words in the Text. Whitespace or other word break characters are not included.
   **/
- static readonly Words : TextComponent 
+ static readonly Words : TextComponent
 
     /**
   *   An array of all items of this enumeration.
   **/
- static readonly all : Array<TextComponent> 
+ static readonly all : Array<TextComponent>
 
 }
  declare class TimeZone {
   constructor(abbreviation: String)
-  
-  
+
+
   /**
   *   The abbreviation for the `TimeZone`.
   **/
-readonly abbreviation : String|null 
+readonly abbreviation : String|null
 
     /**
   *   Returns `true` if the `TimeZone` is currently using daylight savings time.
   **/
-readonly daylightSavingTime : Boolean 
+readonly daylightSavingTime : Boolean
 
     /**
   *   The current difference in seconds between this `TimeZone` and GMT.
   **/
-readonly secondsFromGMT : Number 
+readonly secondsFromGMT : Number
 
   /**
   *   The list of known time zone abbreviations.
   **/
- static readonly abbreviations : Array<String> 
+ static readonly abbreviations : Array<String>
 
 }
  declare class Timer {
-  
+
   /**
-  *  
+  *
   **/
 cancel()
 
@@ -4335,35 +4335,35 @@ cancel()
  static repeating(interval: Number, action: Function) : Timer
 
   /**
-  *  
+  *
   **/
-readonly interval : Number 
+readonly interval : Number
 
-  
+
 }
  declare class ToolbarItem {
-  
-  
-  
+
+
+
   /**
-  *  
+  *
   **/
 image : Image|null
 
     /**
-  *  
+  *
   **/
 label : String
 
     /**
-  *  
+  *
   **/
 toolTip : String|null
 
-  
+
 }
  declare class Tree {
-  
+
   /**
   *   Returns the `TreeNode` that represents the `object` in this `Tree`, or `null` if it cannot be found (possibly filtered out).
   **/
@@ -4394,21 +4394,21 @@ copyNodes(nodes: Array<TreeNode>, to: Pasteboard)
   **/
 paste(from: Pasteboard, parentNode: TreeNode|null, childIndex: Number|null)
 
-  
+
   /**
   *   Returns the `rootNode` of the `Editor`.
   **/
-readonly rootNode : TreeNode 
+readonly rootNode : TreeNode
 
     /**
   *   Returns the list of selected `TreeNode`s, in the order they appear in the tree.
   **/
-readonly selectedNodes : Array<TreeNode> 
+readonly selectedNodes : Array<TreeNode>
 
-  
+
 }
  declare class TreeNode {
-  
+
   /**
   *   Attempts to expand the `TreeNode`. If `completely` is passed, all the child nodes will be expanded as they allow.
   **/
@@ -4439,51 +4439,51 @@ reveal()
   **/
 apply(fn: Function)
 
-  
+
   /**
   *   Returns `true` if this `TreeNode` can be collapsed.
   **/
-readonly canCollapse : Boolean 
+readonly canCollapse : Boolean
 
     /**
   *   Returns `true` if this `TreeNode` can be expanded.
   **/
-readonly canExpand : Boolean 
+readonly canExpand : Boolean
 
     /**
   *   Returns the array of children that are visible under this node, according to any filtering that is being done, and in the order specified by any sorting rules that have been established.
   **/
-readonly children : Array<TreeNode> 
+readonly children : Array<TreeNode>
 
     /**
   *   Returns the index of this `TreeNode` among its siblings, or zero for the `rootNode`.
   **/
-readonly index : Number 
+readonly index : Number
 
     /**
   *   Returns `true` if this `TreeNode` is currently expanded.
   **/
-readonly isExpanded : Boolean 
+readonly isExpanded : Boolean
 
     /**
   *   Returns `true` if the note of this `TreeNode` is currently expanded.
   **/
-readonly isNoteExpanded : Boolean 
+readonly isNoteExpanded : Boolean
 
     /**
   *   Returns `true` if the `TreeNode` is the `rootNode` or all of its ancestor nodes are expanded.
   **/
-readonly isRevealed : Boolean 
+readonly isRevealed : Boolean
 
     /**
   *   Returns `true` if this node is the `rootNode` of its tree.
   **/
-readonly isRootNode : Boolean 
+readonly isRootNode : Boolean
 
     /**
   *   Returns `true` if this `TreeNode` can be selected. The `rootNode` cannot be selected, nor can nodes that aren't revealed.
   **/
-readonly isSelectable : Boolean 
+readonly isSelectable : Boolean
 
     /**
   *   Set to `true` if this `TreeNode` is in the list of selected nodes for its tree. Attempting to set this to `true` will do nothing if the node is not revealed (or is the root node).
@@ -4493,24 +4493,24 @@ isSelected : Boolean
     /**
   *   Returns the nesting level of the `TreeNode`, relative to the root of the tree. The `rootNode` of an `Outline` has level zero, its children have level one, and so on. Note that if only a portion of the model is being shown, this level may not match the level of the underlying `object`.
   **/
-readonly level : Number 
+readonly level : Number
 
     /**
   *   The model object which this node wraps.
   **/
-readonly object : Object 
+readonly object : Object
 
     /**
   *   Returns the `TreeNode` that contains this node, or `null` if this is the `rootNode`.
   **/
-readonly parent : TreeNode|null 
+readonly parent : TreeNode|null
 
     /**
   *   Returns the root `TreeNode` for the tree that this node belongs to.
   **/
-readonly rootNode : TreeNode 
+readonly rootNode : TreeNode
 
-  
+
 }
  declare class TypeIdentifier {
   constructor(identifier: String)
@@ -4519,135 +4519,135 @@ readonly rootNode : TreeNode
   **/
 conformsTo(other: TypeIdentifier) : Boolean
 
-  
+
   /**
   *   Returns a human-readable description of the type.
   **/
-readonly displayName : String 
+readonly displayName : String
 
     /**
   *   Returns a unique string for a type identifier, suitable for archiving or encoding in scripts.
   **/
-readonly identifier : String 
+readonly identifier : String
 
     /**
   *   The list of filesystem path extensions used by this type.
   **/
-readonly pathExtensions : Array<String> 
+readonly pathExtensions : Array<String>
 
   /**
   *   The URL type.
   **/
- static readonly URL : TypeIdentifier 
+ static readonly URL : TypeIdentifier
 
     /**
   *   The binary property list type.
   **/
- static readonly binaryPropertyList : TypeIdentifier 
+ static readonly binaryPropertyList : TypeIdentifier
 
     /**
   *   The comma-separated text type.
   **/
- static readonly csv : TypeIdentifier 
+ static readonly csv : TypeIdentifier
 
     /**
   *   The list of `TypeIdentifier`s that can be read and written natively by documents in this application.
   **/
- static readonly editableTypes : Array<TypeIdentifier> 
+ static readonly editableTypes : Array<TypeIdentifier>
 
     /**
   *   The GIF image type.
   **/
- static readonly gif : TypeIdentifier 
+ static readonly gif : TypeIdentifier
 
     /**
   *   A generic type that all image types conform to.
   **/
- static readonly image : TypeIdentifier 
+ static readonly image : TypeIdentifier
 
     /**
   *   The JPEG image type.
   **/
- static readonly jpeg : TypeIdentifier 
+ static readonly jpeg : TypeIdentifier
 
     /**
   *   The JSON type.
   **/
- static readonly json : TypeIdentifier 
+ static readonly json : TypeIdentifier
 
     /**
   *   The OmniFocus document file type.
   **/
- static readonly ofocus : TypeIdentifier 
+ static readonly ofocus : TypeIdentifier
 
     /**
   *   The PDF type.
   **/
- static readonly pdf : TypeIdentifier 
+ static readonly pdf : TypeIdentifier
 
     /**
   *   The plain text type.
   **/
- static readonly plainText : TypeIdentifier 
+ static readonly plainText : TypeIdentifier
 
     /**
   *   The PNG image type.
   **/
- static readonly png : TypeIdentifier 
+ static readonly png : TypeIdentifier
 
     /**
   *   The generic property list type.
   **/
- static readonly propertyList : TypeIdentifier 
+ static readonly propertyList : TypeIdentifier
 
     /**
   *   The list of `TypeIdentifier`s that can be read by documents in this this application.
   **/
- static readonly readableTypes : Array<TypeIdentifier> 
+ static readonly readableTypes : Array<TypeIdentifier>
 
     /**
   *   The RTF type.
   **/
- static readonly rtf : TypeIdentifier 
+ static readonly rtf : TypeIdentifier
 
     /**
   *   The RTFD type.
   **/
- static readonly rtfd : TypeIdentifier 
+ static readonly rtfd : TypeIdentifier
 
     /**
   *   The TaskPaper-formatted tasks pasteboard type.
   **/
- static readonly taskPaper : TypeIdentifier 
+ static readonly taskPaper : TypeIdentifier
 
     /**
   *   The pasteboard type identifier for OmniFocus tasks and projects.
   **/
- static readonly tasks : TypeIdentifier 
+ static readonly tasks : TypeIdentifier
 
     /**
   *   The pasteboard type identifier for OmniFocus tasks, projects, and folders.
   **/
- static readonly tasksAndFolders : TypeIdentifier 
+ static readonly tasksAndFolders : TypeIdentifier
 
     /**
   *   The TIFF image type.
   **/
- static readonly tiff : TypeIdentifier 
+ static readonly tiff : TypeIdentifier
 
     /**
   *   The list of `TypeIdentifier`s that can be written by documents in this application (though some documents may be exportable only in a subset of these types).
   **/
- static readonly writableTypes : Array<TypeIdentifier> 
+ static readonly writableTypes : Array<TypeIdentifier>
 
     /**
   *   The XML property list type.
   **/
- static readonly xmlPropertyList : TypeIdentifier 
+ static readonly xmlPropertyList : TypeIdentifier
 
 }
  declare class URL {
-  
+
   /**
   *   Get the contents at the destination of this URL.
   **/
@@ -4669,17 +4669,17 @@ open()
 find(types: Array<TypeIdentifier>, recurse: Boolean|null) : Promise<Array<URL>>
 
    /**
-  *  
+  *
   **/
 toString() : String
 
    /**
-  *  
+  *
   **/
 appendingPathComponent(component: String) : URL
 
    /**
-  *  
+  *
   **/
 deletingLastPathComponent() : URL
 
@@ -4711,17 +4711,17 @@ deletingLastPathComponent() : URL
   /**
   *   String representation of this URL.
   **/
-readonly string : String 
+readonly string : String
 
     /**
-  *  
+  *
   **/
-readonly toObject : Object|null 
+readonly toObject : Object|null
 
   /**
   *   Returns the URL scheme for the current app.
   **/
- static readonly currentAppScheme : String 
+ static readonly currentAppScheme : String
 
 }
 declare namespace URL {
@@ -4767,138 +4767,138 @@ method : String|null
   **/
 url : URL|null
 
-  
+
 }
 
       }declare namespace URL {
           class FetchResponse {
-  
-  
-  
+
+
+
   /**
   *   Returns the raw HTTP body data from this response.
   **/
-readonly bodyData : Data|null 
+readonly bodyData : Data|null
 
     /**
   *   This is a convenience wrapper which interprets the `bodyData` of this response as UTF-8 text. (Note: the current implementation assumes the text is encoded using UTF-8, but ideally it would honor the text encoding as reported by `textEncodingName`.)
   **/
-readonly bodyString : String|null 
+readonly bodyString : String|null
 
     /**
   *   Returns the HTTP header fields for this response.
   **/
-readonly headers : Object 
+readonly headers : Object
 
     /**
   *   Returns the HTTP MIME type for this response (e.g. `text/plain`, `application/json`, etc.).
   **/
-readonly mimeType : String|null 
+readonly mimeType : String|null
 
     /**
   *   Returns the HTTP status code for this response (e.g. `200`, `404`, etc.).
   **/
-readonly statusCode : Number 
+readonly statusCode : Number
 
     /**
   *   Returns the reported text encoding for this response. This name will be the actual string reported by the origin source, or `null` if no encoding was specified.
   **/
-readonly textEncodingName : String|null 
+readonly textEncodingName : String|null
 
     /**
   *   Returns the URL for this response.
   **/
-readonly url : URL|null 
+readonly url : URL|null
 
-  
+
 }
 
       } declare class UnderlineAffinity {
-  
-  
-  
-  
+
+
+
+
   /**
   *   Underline only the words, but not the space between them.
   **/
- static readonly ByWord : UnderlineAffinity 
+ static readonly ByWord : UnderlineAffinity
 
     /**
   *   Underline the entire range.
   **/
- static readonly None : UnderlineAffinity 
+ static readonly None : UnderlineAffinity
 
     /**
   *   An array of all items of this enumeration.
   **/
- static readonly all : Array<UnderlineAffinity> 
+ static readonly all : Array<UnderlineAffinity>
 
 }
  declare class UnderlinePattern {
-  
-  
-  
-  
+
+
+
+
   /**
   *   Dashed line.
   **/
- static readonly Dash : UnderlinePattern 
+ static readonly Dash : UnderlinePattern
 
     /**
   *   Alternating dashes and dots.
   **/
- static readonly DashDot : UnderlinePattern 
+ static readonly DashDot : UnderlinePattern
 
     /**
   *   Alternating dashes and pairs of dots.
   **/
- static readonly DashDotDot : UnderlinePattern 
+ static readonly DashDotDot : UnderlinePattern
 
     /**
   *   Dotted line.
   **/
- static readonly Dot : UnderlinePattern 
+ static readonly Dot : UnderlinePattern
 
     /**
   *   A continuous line.
   **/
- static readonly Solid : UnderlinePattern 
+ static readonly Solid : UnderlinePattern
 
     /**
   *   An array of all items of this enumeration.
   **/
- static readonly all : Array<UnderlinePattern> 
+ static readonly all : Array<UnderlinePattern>
 
 }
  declare class UnderlineStyle {
-  
-  
-  
-  
+
+
+
+
   /**
   *   Two lines.
   **/
- static readonly Double : UnderlineStyle 
+ static readonly Double : UnderlineStyle
 
     /**
   *   No underline.
   **/
- static readonly None : UnderlineStyle 
+ static readonly None : UnderlineStyle
 
     /**
   *   A single line.
   **/
- static readonly Single : UnderlineStyle 
+ static readonly Single : UnderlineStyle
 
     /**
   *   A single thick line.
   **/
- static readonly Thick : UnderlineStyle 
+ static readonly Thick : UnderlineStyle
 
     /**
   *   An array of all items of this enumeration.
   **/
- static readonly all : Array<UnderlineStyle> 
+ static readonly all : Array<UnderlineStyle>
 
 }
  declare class Version {
@@ -4923,24 +4923,24 @@ isAfter(version: Version) : Boolean
   **/
 isBefore(version: Version) : Boolean
 
-  
+
   /**
   *   Returns as an opaque string representation of the `Version`, suitable for display or logging. This should never be used in comparisons of any sort.
   **/
-readonly versionString : String 
+readonly versionString : String
 
-  
+
 }
  declare class Window {
-  
+
   /**
-  *  
+  *
   **/
 close()
 
-  
-  
-  
+
+
+
 }
 
  declare module globalThis {
@@ -5057,71 +5057,71 @@ let pasteTasksFromPasteboard: (pasteboard: Pasteboard) => Array<Task>
  /**
   *   Returns true if there are redoable actions.
   **/
-let canRedo : Boolean 
+let canRedo : Boolean
 
     /**
   *   Returns true if there are undoable actions.
   **/
-let canUndo : Boolean 
+let canUndo : Boolean
 
     /**
-  *  
+  *
   **/
-let document : DatabaseDocument|null 
+let document : DatabaseDocument|null
 
     /**
   *   Returns a flat array of all folders in the database, sorted by their order in the database.
   **/
-let flattenedFolders : FolderArray 
+let flattenedFolders : FolderArray
 
     /**
   *   Returns a flat array of all projects in the database, sorted by their order in the database.
   **/
-let flattenedProjects : ProjectArray 
+let flattenedProjects : ProjectArray
 
     /**
   *   Returns a flat array of all folders and project in the database, sorted by their order in the database.
   **/
-let flattenedSections : SectionArray 
+let flattenedSections : SectionArray
 
     /**
   *   Returns a flat array of all tags in the database, sorted by their order in the database.
   **/
-let flattenedTags : TagArray 
+let flattenedTags : TagArray
 
     /**
   *   Returns a flat array of all tasks in the database, including inbox items, root tasks for projects, task groups and individual tasks. Tasks are sorted by their order in the database, with the inbox preceeding the library.
   **/
-let flattenedTasks : TaskArray 
+let flattenedTasks : TaskArray
 
     /**
   *   Returns the top-level folders in the database.
   **/
-let folders : FolderArray 
+let folders : FolderArray
 
     /**
   *   Returns a copy of the `Task`s currently in the inbox.
   **/
-let inbox : Inbox 
+let inbox : Inbox
 
     /**
   *   Returns the top-level folders and projects in the database.
   **/
-let library : Library 
+let library : Library
 
     /**
   *   Returns the top-level folders in the database.
   **/
-let projects : ProjectArray 
+let projects : ProjectArray
 
     /**
-  *  
+  *
   **/
-let settings : Settings 
+let settings : Settings
 
     /**
   *   Returns the top-level tags in the database.
   **/
-let tags : Tags 
+let tags : Tags
 
 }

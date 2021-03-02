@@ -14,14 +14,12 @@
     var action = new PlugIn.Action(/**
          * @param {{ tasks: Task[]; }} selection
          */
-function(selection) {
+    function(selection) {
+        var plugin = PlugIn.find("com.mycompany.TimeLibrary");
+        var dateLibrary = plugin.library("TimeLibrary");
         // Add code to run when the action is invoked
-        const today = new Date()
-        today.setHours(0,0,0)
-        const tomorrow = new Date(today)
-        tomorrow.setDate(tomorrow.getDate() + 1)
         selection.tasks.forEach((task) => {
-            task.deferDate = tomorrow;
+            task.deferDate = dateLibrary.tomorrow();
         });
     });
 

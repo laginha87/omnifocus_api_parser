@@ -2880,7 +2880,7 @@ unit : String
 
 }
 
-      } declare class ProjectArray {
+      } declare class ProjectArray extends Array<Project> {
 
   /**
   *   Returns the first `Project` contained directly in this array with the given name.

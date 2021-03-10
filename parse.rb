@@ -100,6 +100,13 @@ end
 
 def print_class(cl, methods, namespaced: false)
   declare = namespaced ? "" : "declare"
+  if(cl.end_with?("Array") && cl.length > "Array".length)
+    if(cl != "SectionArray")
+      cl = "#{cl} extends Array<#{cl.gsub("Array","")}>"
+    else
+      cl = "SectionArray extends Array<Folder|Project>"
+    end
+  end
   res = """ #{declare} class #{cl} {
   #{methods[:constructor].map do |bd, cm|
     a,b,*c = parse_line(bd).split(/\(|\)/)

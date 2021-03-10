@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.laginha87.omnifocus-sinatra</string>
+
+    <key>KeepAlive</key>
+    <false/>
+
+    <key>LaunchOnlyOnce</key>
+    <true/>
+
+    <key>UserName</key>
+    <string>wheel</string>
+    <key>StandardOutPath</key>
+    <string><%=@app_path%>/logs/out.log</string>
+    <key>StandardErrorPath</key>
+    <string><%=@app_path%>/logs/err.log</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string><%=@ruby_path%></string>
+        <string><%=@app_path%>/sinatra.rb</string>
+        <string>-p</string>
+        <string>30123</string>
+    </array>
+</dict>
+</plist>

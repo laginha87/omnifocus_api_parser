@@ -24,5 +24,11 @@
     const date = myLibrary.today();
     return myLibrary.addDay(date, 1);
   }
+
+  myLibrary.setStartOfWeek = (date) => {
+      var day = date.getDay();
+      var diff = date.getDate() - day + (day == 0 ? -6:1);
+      return new Date(date.setDate(diff));
+  }
   return myLibrary;
 })();

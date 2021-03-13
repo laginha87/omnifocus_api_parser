@@ -5,24 +5,23 @@
     <key>Label</key>
     <string>com.laginha87.omnifocus-sinatra</string>
 
-    <key>KeepAlive</key>
-    <false/>
-
-    <key>LaunchOnlyOnce</key>
-    <true/>
-
-    <key>UserName</key>
-    <string>wheel</string>
-    <key>StandardOutPath</key>
-    <string><%=@app_path%>/logs/out.log</string>
-    <key>StandardErrorPath</key>
-    <string><%=@app_path%>/logs/err.log</string>
     <key>ProgramArguments</key>
+
     <array>
-        <string><%=@ruby_path%></string>
-        <string><%=@app_path%>/sinatra.rb</string>
-        <string>-p</string>
-        <string>30123</string>
+        <string>/Users/filipecorreia/.rvm/gems/ruby-2.6.3@omnifocus_docs/wrappers/bundle</string>
+        <string>exec</string>
+        <string>rackup</string>
+        <string>-p30123</string>
     </array>
+    <key>RunAtLoad</key>
+  <true/>
+  <key>KeepAlive</key>
+  <true/>
+    <key>StandardErrorPath</key>
+  <string>log/error.log</string>
+  <key>StandardOutPath</key>
+  <string>log/access.log</string>
+  <key>WorkingDirectory</key>
+  <string><%=@app_path%></string>
 </dict>
 </plist>

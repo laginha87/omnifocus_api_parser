@@ -16,7 +16,8 @@
 
     function(selection) {
       var project = selection.projects[0] || selection.tasks[0].containingProject;
-      URL.fromString(`http://localhost:30123/code?f=/Users/filipecorreia/Dropbox/Cabinet/${project.parentFolder.name}/${project.name.replace(" ", "+")}`).open();
+      var url = `http://localhost:30123/code?f=/Users/filipecorreia/Dropbox/Cabinet/${project.parentFolder.name}/${project.name.replace(/\ /g, "+", )}`;
+      URL.fromString(url).open();
       });
 
   /**

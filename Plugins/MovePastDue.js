@@ -19,10 +19,10 @@
       var dateLibrary = plugin.library("TimeLibrary");
 
       flattenedTasks.filter((e) => e.taskStatus === Task.Status.Overdue).forEach((e) => {
-        var date = dateLibrary.today();
+        var date = dateLibrary.Today();
         date.setHours(18,0,0);
         if(date < new Date()) {
-          date = dateLibrary.addDay(date, 1);
+          date = dateLibrary.AddDay(date, 1);
         }
         e.dueDate = date;
       })

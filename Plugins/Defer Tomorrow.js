@@ -19,7 +19,7 @@
         var dateLibrary = plugin.library("TimeLibrary");
         // Add code to run when the action is invoked
         selection.tasks.forEach((task) => {
-            task.deferDate = dateLibrary.tomorrow();
+            task.deferDate = dateLibrary.Tomorrow();
         });
     });
 

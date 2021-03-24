@@ -18,7 +18,7 @@
     var dateLibrary = plugin.library("TimeLibrary");
 
     flattenedProjects.filter((e) => e.status === Project.Status.Active).forEach((e) => {
-      e.nextReviewDate = dateLibrary.setStartOfWeek(e.nextReviewDate);
+      e.nextReviewDate = dateLibrary.SetStartOfWeek(e.nextReviewDate);
     });
   });
 

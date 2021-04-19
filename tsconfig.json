@@ -3,8 +3,9 @@
     "lib": ["es6"],
     "allowUmdGlobalAccess": true,
     "module": "UMD",
-    "allowJs": true,
-    "checkJs": true,
+    "allowJs": false,
+    "checkJs": false,
     "typeRoots": ["./types"],
+    "outDir": "Build2",
   },
 }

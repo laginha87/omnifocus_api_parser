@@ -2842,7 +2842,7 @@ declare namespace Project {
     /**
   *   The units to use (e.g. "days", "weeks", "months", "years").
   **/
-    unit: "days" | "weeks" | "months" | "years
+    unit: "days" | "weeks" | "months" | "years"
 
 
   }
@@ -4783,7 +4783,7 @@ declare namespace URL {
     /**
   *   This is a convenience wrapper which interprets the `bodyData` of this response as UTF-8 text. (Note: the current implementation assumes the text is encoded using UTF-8, but ideally it would honor the text encoding as reported by `textEncodingName`.)
   **/
-    readonly bodyString: String | null
+    readonly bodyString?: string
 
     /**
   *   Returns the HTTP header fields for this response.

@@ -37,6 +37,6 @@ for (let out of result.outputFiles) {
     "})();",
   ].join("\n");
   fs.writeFile(changeExtension(out.path, ".omnijs"), output, (err) => {
-    console.error(err);
+
   });
 }

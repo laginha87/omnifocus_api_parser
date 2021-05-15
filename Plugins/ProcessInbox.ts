@@ -10,7 +10,7 @@ const getParams = (url) => {
   return queryString.split("&").map((e) => e.split("=")).reduce((acc, [k, v]) => ({ ...acc, [k]: v }), {})
 }
 const pr = new Preferences("youtub");
-const YOUTUBE_API_KEY = pr.read("api_key");
+const YOUTUBE_API_KEY = pr.read("api_key");)
 const processYoutube = (t : Task) => {
   var url = t.name.match(HTTP_REGEX)[0];
   const params = getParams(url);
@@ -22,8 +22,11 @@ const processYoutube = (t : Task) => {
 
     req1.fetch().then((res) => {
       let data = JSON.parse(res.bodyString)
+      console.log(res.bodyString);
       data.items.forEach((e) => {
         t.name = `Watch youtube ${data.items[0].snippet.title}`
+      }).catch((e) => {
+        console.error(e);
       })
     })
 
@@ -33,10 +36,11 @@ const processYoutube = (t : Task) => {
 
     req2.fetch().then((res) => {
       let data = JSON.parse(res.bodyString)
+      console.log(data);
       data.items.forEach((e) => {
         new Task(`https://www.youtube.com/watch?v=${e.contentDetails.videoId}`, t)
       })
-    })
+    }).catch((e) => {console.error(e)})
   } else {
     let id = params.v
     const req = URL.FetchRequest.fromString(
